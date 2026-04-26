@@ -310,207 +310,6 @@ if(sessionStorage.getItem('th_auth')==='1'){
   </div>
 </nav>
 
-<!-- ═══════════ FLIGHTS ═══════════ -->
-<div class="section" id="flights">
-  <h2 class="section-title"><span class="emoji">✈️</span> All Flights</h2>
-
-  <!-- Flight 1: AUH → TRV -->
-  <div class="flight-card">
-    <div class="flight-label">Flight 1 · Etihad Airways</div>
-    <div class="flight-route">AUH <span class="arrow">→</span> TRV</div>
-    <div style="font-size:.85rem;color:var(--muted);">Abu Dhabi → Thiruvananthapuram</div>
-    <div class="flight-details">
-      <div class="flight-detail"><div class="label">Date</div><div class="value">21 May 2026</div></div>
-      <div class="flight-detail"><div class="label">Departure</div><div class="value">14:25 (AUH)</div></div>
-      <div class="flight-detail"><div class="label">Arrival</div><div class="value">21 May (TRV)</div></div>
-      <div class="flight-detail"><div class="label">Aircraft</div><div class="value">Airbus A321</div></div>
-      <div class="flight-detail"><div class="label">Terminal</div><div class="value">T3 → Terminal A</div></div>
-      <div class="flight-detail"><div class="label">Duration</div><div class="value">~4h 30m · Nonstop</div></div>
-    </div>
-    <div class="passenger-tags">
-      <span>👤 Rahul Raj Valia Veetil</span><span>👤 Reshma Vikraman</span>
-      <span>👤 Ashik Puthiya Veettil</span><span>👤 Sreya Alakkandi</span>
-    </div>
-    <div class="ref-badge">PNR: 7Q9F9G</div>
-    <div style="font-size:.8rem;color:var(--muted);margin-top:.5rem;">Checked baggage: 23kg (Rahul & Reshma: 23kg per bag) | Status: CONFIRMED</div>
-    <div class="ticket-links">
-      <a href="tickets/auh-trv/RAHUL%20RAJ%20VALIA%20VEETIL%207Q9F9G%2021MAY%201425%20AUH.pdf" target="_blank">📄 Rahul</a>
-      <a href="tickets/auh-trv/RESHMA%20VIKRAMAN%207Q9F9G%2021MAY%201425%20AUH.pdf" target="_blank">📄 Reshma</a>
-      <a href="tickets/auh-trv/ASHIK%20PUTHIYA%20VEETTIL%207Q9F9G%2021MAY%201425%20AUH.pdf" target="_blank">📄 Ashik</a>
-      <a href="tickets/auh-trv/SREYA%20ALAKKANDI%207Q9F9G%2021MAY%201425%20AUH.pdf" target="_blank">📄 Sreya</a>
-    </div>
-  </div>
-
-  <!-- Flight 2: TRV → HKT via SIN -->
-  <div class="flight-card">
-    <div class="flight-label">Flight 2 · Scoot (via Singapore)</div>
-    <div class="flight-route">TRV <span class="arrow">→</span> SIN <span class="arrow">→</span> HKT</div>
-    <div style="font-size:.85rem;color:var(--muted);">Thiruvananthapuram → Singapore Changi → Phuket</div>
-    <div class="flight-details">
-      <div class="flight-detail"><div class="label">Leg 1</div><div class="value">TR731 · 22 May 23:15</div></div>
-      <div class="flight-detail"><div class="label">Arrive SIN</div><div class="value">23 May 06:30</div></div>
-      <div class="flight-detail"><div class="label">Layover</div><div class="value">1h 00m (T1)</div></div>
-      <div class="flight-detail"><div class="label">Leg 2</div><div class="value">TR658 · 23 May 07:30</div></div>
-      <div class="flight-detail"><div class="label">Arrive HKT</div><div class="value">23 May 08:20</div></div>
-      <div class="flight-detail"><div class="label">Aircraft</div><div class="value">A321neo</div></div>
-    </div>
-    <div style="margin-top:.8rem;font-size:.85rem;">
-      <strong>Seats:</strong> Rahul 25A · Reshma 25B · Ashik 26A · Sreya 26B &nbsp;|&nbsp;
-      <strong>Baggage:</strong> 20kg check-in each
-    </div>
-    <div class="ref-badge">PNR: D7NJVS</div>
-    <div class="ticket-links">
-      <a href="tickets/trv-hkt/TRV%20to%20HKT.pdf" target="_blank">📄 All 4 Passengers – Scoot Booking</a>
-    </div>
-  </div>
-
-  <!-- Flight 3: HKT → AUH -->
-  <div class="flight-card">
-    <div class="flight-label">Flight 3 · Etihad Airways (Return) · ⚠️ RESCHEDULED</div>
-    <div class="flight-route">HKT <span class="arrow">→</span> AUH</div>
-    <div style="font-size:.85rem;color:var(--muted);">Phuket → Abu Dhabi (via connection)</div>
-    <div class="flight-details">
-      <div class="flight-detail"><div class="label">Flight</div><div class="value">EY417 → EY413</div></div>
-      <div class="flight-detail"><div class="label">Departure</div><div class="value" style="color:var(--orange);">20:25 · 29 May</div></div>
-      <div class="flight-detail"><div class="label">Arrival AUH</div><div class="value" style="color:var(--orange);">00:40 · 30 May</div></div>
-      <div class="flight-detail"><div class="label">Aircraft</div><div class="value">A321LR + Boeing 777-300ER</div></div>
-      <div class="flight-detail"><div class="label">Terminal</div><div class="value">Terminal I → Terminal A</div></div>
-      <div class="flight-detail"><div class="label">Duration</div><div class="value">~6h 20m</div></div>
-    </div>
-    <div class="passenger-tags">
-      <span>👤 Rahul & Reshma – <code style="color:var(--accent);">7RRHK7</code></span>
-      <span>👤 Ashik & Sreya – <code style="color:var(--accent);">7R8J79</code></span>
-    </div>
-    <div class="ticket-links">
-      <a href="tickets/hkt-auh/RAHUL%20RAJ%20VALIA%20VEETIL%207RRHK7%2029MAY%201520%20HKT.pdf" target="_blank">📄 Rahul</a>
-      <a href="tickets/hkt-auh/RESHMA%20VIKRAMAN%207RRHK7%2029MAY%201520%20HKT.pdf" target="_blank">📄 Reshma</a>
-      <a href="tickets/hkt-auh/ASHIK%20PUTHIYA%20VEETTIL%207R8J79%2029MAY%201520%20HKT.pdf" target="_blank">📄 Ashik</a>
-      <a href="tickets/hkt-auh/SREYA%20ALAKKANDI%207R8J79%2029MAY%201520%20HKT.pdf" target="_blank">📄 Sreya</a>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════ FERRIES ═══════════ -->
-<div class="section" id="ferries">
-  <h2 class="section-title"><span class="emoji">⛴️</span> Ferry Transfers</h2>
-
-  <div class="ferry-card">
-    <div class="flight-label">Ferry 1 · Krabi → Phi Phi</div>
-    <div class="flight-route">Nopparat-Thara Pier <span class="arrow">→</span> Tonsai Pier</div>
-    <div class="flight-details">
-      <div class="flight-detail"><div class="label">Date</div><div class="value">26 May 2026</div></div>
-      <div class="flight-detail"><div class="label">Departure</div><div class="value">09:30 AM</div></div>
-      <div class="flight-detail"><div class="label">Pickup</div><div class="value">Centara Anda Dhevi</div></div>
-      <div class="flight-detail"><div class="label">Pax</div><div class="value">4 Adults</div></div>
-    </div>
-    <div class="ref-badge">Klook Ref: RBR019339</div>
-    <div style="font-size:.82rem;color:var(--muted);margin-top:.5rem;">
-      ⚠️ Driver picks up <strong>1h 45min before</strong> departure – be in lobby by ~7:45 AM<br>
-      ⚠️ Cleaning fee at Tonsai Pier: THB 20/person<br>
-      ⚠️ Hotel pickup is shared transfer – expect waiting time
-    </div>
-    <div class="ticket-links">
-      <a href="tickets/ferries/Krabi%20to%20phi%20phi.pdf" target="_blank">📄 Ferry Voucher – Krabi to Phi Phi</a>
-    </div>
-  </div>
-
-  <div class="ferry-card">
-    <div class="flight-label">Ferry 2 · Phi Phi → Phuket</div>
-    <div class="flight-route">Tonsai Pier <span class="arrow">→</span> Rassada Pier</div>
-    <div class="flight-details">
-      <div class="flight-detail"><div class="label">Date</div><div class="value">27 May 2026</div></div>
-      <div class="flight-detail"><div class="label">Departure</div><div class="value">02:30 PM</div></div>
-      <div class="flight-detail"><div class="label">Operator</div><div class="value">Andaman Wave Master</div></div>
-      <div class="flight-detail"><div class="label">Pax</div><div class="value">4 Adults</div></div>
-    </div>
-    <div class="ref-badge">Klook Ref: WGN015258</div>
-    <div style="font-size:.82rem;color:var(--muted);margin-top:.5rem;">
-      ⚠️ Check in at Andaman Wave Master Counter at least <strong>30 min before</strong> departure<br>
-      ⚠️ Cleaning fee at Tonsai Pier: THB 20/person<br>
-      📞 Operator: +66 76 614 139
-    </div>
-    <div class="ticket-links">
-      <a href="tickets/ferries/Phi%20phi%20to%20phuket.PDF" target="_blank">📄 Ferry Voucher – Phi Phi to Phuket</a>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════ HOTELS ═══════════ -->
-<div class="section" id="hotels">
-  <h2 class="section-title"><span class="emoji">🏨</span> Accommodations</h2>
-
-  <!-- Hotel 1 -->
-  <div class="hotel-card">
-    <img class="hotel-img" src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80" alt="Centara Anda Dhevi">
-    <div class="hotel-body">
-      <div class="hotel-name">Centara Anda Dhevi Resort & Spa Krabi</div>
-      <div class="hotel-addr">📍 182 Moo 3, Ao Nang Soi 8, Krabi · ☎️ +66-75-626222</div>
-      <div class="hotel-grid">
-        <div class="hotel-stat"><div class="label">Check-in</div><div class="value">23 May 2026 · 3:00 PM</div></div>
-        <div class="hotel-stat"><div class="label">Check-out</div><div class="value">26 May 2026 · Before 12:00</div></div>
-        <div class="hotel-stat"><div class="label">Rooms</div><div class="value">2 Deluxe King · Pool View</div></div>
-        <div class="hotel-stat"><div class="label">Nights</div><div class="value">3 nights</div></div>
-        <div class="hotel-stat"><div class="label">Guests</div><div class="value">Rahul+Ashik / Room</div></div>
-        <div class="hotel-stat"><div class="label">Meals</div><div class="value">Breakfast included (24, 25, 26 May)</div></div>
-        <div class="hotel-stat"><div class="label">Price</div><div class="value">AED 1,627.92 (Paid)</div></div>
-        <div class="hotel-stat"><div class="label">Confirmation</div><div class="value" style="color:var(--accent);">34980SG107810</div></div>
-      </div>
-      <div class="amenity-tags">
-        <span>🛁 Bathtub</span><span>🚿 Rainfall Shower</span><span>👘 Bathrobes</span>
-        <span>💨 Hair Dryer</span><span>🩴 Slippers</span><span>🧴 Full Toiletries</span>
-      </div>
-      <div class="ticket-links">
-        <a href="tickets/hotels/Centara%20Anta%20Devi%20Krabi.pdf" target="_blank">📄 Booking Confirmation</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Hotel 2 -->
-  <div class="hotel-card">
-    <img class="hotel-img" src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800&q=80" alt="Phi Phi Beach Resort">
-    <div class="hotel-body">
-      <div class="hotel-name">Phi Phi The Beach Resort</div>
-      <div class="hotel-addr">📍 177 Moo 7, Phi Phi Island · ☎️ +66 62 191 4945</div>
-      <div class="hotel-grid">
-        <div class="hotel-stat"><div class="label">Check-in</div><div class="value">26 May 2026</div></div>
-        <div class="hotel-stat"><div class="label">Check-out</div><div class="value">27 May 2026</div></div>
-        <div class="hotel-stat"><div class="label">Rooms</div><div class="value">2 Standard Rooms</div></div>
-        <div class="hotel-stat"><div class="label">Nights</div><div class="value">1 night</div></div>
-        <div class="hotel-stat"><div class="label">Meals</div><div class="value">Breakfast included</div></div>
-        <div class="hotel-stat"><div class="label">Price</div><div class="value">~AED 715 (THB 6,300)</div></div>
-        <div class="hotel-stat"><div class="label">Transfer</div><div class="value" style="color:var(--green);">Free boat Tonsai → Resort</div></div>
-        <div class="hotel-stat"><div class="label">Bed</div><div class="value">1 Double bed / room</div></div>
-      </div>
-      <div class="amenity-tags">
-        <span>🏖️ Beach Access</span><span>📺 Flat-screen TV</span><span>❄️ AC</span>
-        <span>🧊 Minibar</span><span>☕ Tea/Coffee Maker</span><span>👘 Bathrobe</span><span>🌿 Balcony & Terrace</span>
-      </div>
-      <div style="margin-top:1rem;padding:1rem;background:var(--card2);border-radius:10px;font-size:.82rem;color:var(--orange);">
-        ⚠️ <strong>Getting there:</strong> After reaching Tonsai Pier, take the resort's <strong>FREE long-tail boat</strong> (~10 min). Staff will be at the pier.
-      </div>
-      <div class="ticket-links">
-        <a href="tickets/hotels/PHI%20PHI%20RESORT.pdf" target="_blank">📄 Booking Confirmation</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Hotel 3 -->
-  <div class="hotel-card">
-    <img class="hotel-img" src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80" alt="Burasari Phuket">
-    <div class="hotel-body">
-      <div class="hotel-name">Burasari Phuket Resort</div>
-      <div class="hotel-addr">📍 18, 110 Ruamchai Rd, Pa Tong, Kathu District, Phuket 83150 · ☎️ +66-76-292929</div>
-      <div class="hotel-grid">
-        <div class="hotel-stat"><div class="label">Check-in</div><div class="value">27 May 2026 · After 3:00 PM</div></div>
-        <div class="hotel-stat"><div class="label">Check-out</div><div class="value">29 May 2026 · Before 12:00</div></div>
-        <div class="hotel-stat"><div class="label">Nights</div><div class="value">2 nights</div></div>
-        <div class="hotel-stat"><div class="label">Location</div><div class="value">Patong, near Bangla Road</div></div>
-        <div class="hotel-stat"><div class="label">Contact</div><div class="value" style="font-size:.75rem;">burasariphuket.4rr2ipdal0e30rt@htlpartner.trip.com</div></div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- ═══════════ DAY-BY-DAY ═══════════ -->
 
 <!-- PRE-TRIP DAY 1 -->
@@ -1128,6 +927,209 @@ if(sessionStorage.getItem('th_auth')==='1'){
     </div>
   </div>
 </div>
+
+
+<!-- ═══════════ FLIGHTS ═══════════ -->
+<div class="section" id="flights">
+  <h2 class="section-title"><span class="emoji">✈️</span> All Flights</h2>
+
+  <!-- Flight 1: AUH → TRV -->
+  <div class="flight-card">
+    <div class="flight-label">Flight 1 · Etihad Airways</div>
+    <div class="flight-route">AUH <span class="arrow">→</span> TRV</div>
+    <div style="font-size:.85rem;color:var(--muted);">Abu Dhabi → Thiruvananthapuram</div>
+    <div class="flight-details">
+      <div class="flight-detail"><div class="label">Date</div><div class="value">21 May 2026</div></div>
+      <div class="flight-detail"><div class="label">Departure</div><div class="value">14:25 (AUH)</div></div>
+      <div class="flight-detail"><div class="label">Arrival</div><div class="value">21 May (TRV)</div></div>
+      <div class="flight-detail"><div class="label">Aircraft</div><div class="value">Airbus A321</div></div>
+      <div class="flight-detail"><div class="label">Terminal</div><div class="value">T3 → Terminal A</div></div>
+      <div class="flight-detail"><div class="label">Duration</div><div class="value">~4h 30m · Nonstop</div></div>
+    </div>
+    <div class="passenger-tags">
+      <span>👤 Rahul Raj Valia Veetil</span><span>👤 Reshma Vikraman</span>
+      <span>👤 Ashik Puthiya Veettil</span><span>👤 Sreya Alakkandi</span>
+    </div>
+    <div class="ref-badge">PNR: 7Q9F9G</div>
+    <div style="font-size:.8rem;color:var(--muted);margin-top:.5rem;">Checked baggage: 23kg (Rahul & Reshma: 23kg per bag) | Status: CONFIRMED</div>
+    <div class="ticket-links">
+      <a href="tickets/auh-trv/RAHUL%20RAJ%20VALIA%20VEETIL%207Q9F9G%2021MAY%201425%20AUH.pdf" target="_blank">📄 Rahul</a>
+      <a href="tickets/auh-trv/RESHMA%20VIKRAMAN%207Q9F9G%2021MAY%201425%20AUH.pdf" target="_blank">📄 Reshma</a>
+      <a href="tickets/auh-trv/ASHIK%20PUTHIYA%20VEETTIL%207Q9F9G%2021MAY%201425%20AUH.pdf" target="_blank">📄 Ashik</a>
+      <a href="tickets/auh-trv/SREYA%20ALAKKANDI%207Q9F9G%2021MAY%201425%20AUH.pdf" target="_blank">📄 Sreya</a>
+    </div>
+  </div>
+
+  <!-- Flight 2: TRV → HKT via SIN -->
+  <div class="flight-card">
+    <div class="flight-label">Flight 2 · Scoot (via Singapore)</div>
+    <div class="flight-route">TRV <span class="arrow">→</span> SIN <span class="arrow">→</span> HKT</div>
+    <div style="font-size:.85rem;color:var(--muted);">Thiruvananthapuram → Singapore Changi → Phuket</div>
+    <div class="flight-details">
+      <div class="flight-detail"><div class="label">Leg 1</div><div class="value">TR731 · 22 May 23:15</div></div>
+      <div class="flight-detail"><div class="label">Arrive SIN</div><div class="value">23 May 06:30</div></div>
+      <div class="flight-detail"><div class="label">Layover</div><div class="value">1h 00m (T1)</div></div>
+      <div class="flight-detail"><div class="label">Leg 2</div><div class="value">TR658 · 23 May 07:30</div></div>
+      <div class="flight-detail"><div class="label">Arrive HKT</div><div class="value">23 May 08:20</div></div>
+      <div class="flight-detail"><div class="label">Aircraft</div><div class="value">A321neo</div></div>
+    </div>
+    <div style="margin-top:.8rem;font-size:.85rem;">
+      <strong>Seats:</strong> Rahul 25A · Reshma 25B · Ashik 26A · Sreya 26B &nbsp;|&nbsp;
+      <strong>Baggage:</strong> 20kg check-in each
+    </div>
+    <div class="ref-badge">PNR: D7NJVS</div>
+    <div class="ticket-links">
+      <a href="tickets/trv-hkt/TRV%20to%20HKT.pdf" target="_blank">📄 All 4 Passengers – Scoot Booking</a>
+    </div>
+  </div>
+
+  <!-- Flight 3: HKT → AUH -->
+  <div class="flight-card">
+    <div class="flight-label">Flight 3 · Etihad Airways (Return) · ⚠️ RESCHEDULED</div>
+    <div class="flight-route">HKT <span class="arrow">→</span> AUH</div>
+    <div style="font-size:.85rem;color:var(--muted);">Phuket → Abu Dhabi (via connection)</div>
+    <div class="flight-details">
+      <div class="flight-detail"><div class="label">Flight</div><div class="value">EY417 → EY413</div></div>
+      <div class="flight-detail"><div class="label">Departure</div><div class="value" style="color:var(--orange);">20:25 · 29 May</div></div>
+      <div class="flight-detail"><div class="label">Arrival AUH</div><div class="value" style="color:var(--orange);">00:40 · 30 May</div></div>
+      <div class="flight-detail"><div class="label">Aircraft</div><div class="value">A321LR + Boeing 777-300ER</div></div>
+      <div class="flight-detail"><div class="label">Terminal</div><div class="value">Terminal I → Terminal A</div></div>
+      <div class="flight-detail"><div class="label">Duration</div><div class="value">~6h 20m</div></div>
+    </div>
+    <div class="passenger-tags">
+      <span>👤 Rahul & Reshma – <code style="color:var(--accent);">7RRHK7</code></span>
+      <span>👤 Ashik & Sreya – <code style="color:var(--accent);">7R8J79</code></span>
+    </div>
+    <div class="ticket-links">
+      <a href="tickets/hkt-auh/RAHUL%20RAJ%20VALIA%20VEETIL%207RRHK7%2029MAY%201520%20HKT.pdf" target="_blank">📄 Rahul</a>
+      <a href="tickets/hkt-auh/RESHMA%20VIKRAMAN%207RRHK7%2029MAY%201520%20HKT.pdf" target="_blank">📄 Reshma</a>
+      <a href="tickets/hkt-auh/ASHIK%20PUTHIYA%20VEETTIL%207R8J79%2029MAY%201520%20HKT.pdf" target="_blank">📄 Ashik</a>
+      <a href="tickets/hkt-auh/SREYA%20ALAKKANDI%207R8J79%2029MAY%201520%20HKT.pdf" target="_blank">📄 Sreya</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ FERRIES ═══════════ -->
+<div class="section" id="ferries">
+  <h2 class="section-title"><span class="emoji">⛴️</span> Ferry Transfers</h2>
+
+  <div class="ferry-card">
+    <div class="flight-label">Ferry 1 · Krabi → Phi Phi</div>
+    <div class="flight-route">Nopparat-Thara Pier <span class="arrow">→</span> Tonsai Pier</div>
+    <div class="flight-details">
+      <div class="flight-detail"><div class="label">Date</div><div class="value">26 May 2026</div></div>
+      <div class="flight-detail"><div class="label">Departure</div><div class="value">09:30 AM</div></div>
+      <div class="flight-detail"><div class="label">Pickup</div><div class="value">Centara Anda Dhevi</div></div>
+      <div class="flight-detail"><div class="label">Pax</div><div class="value">4 Adults</div></div>
+    </div>
+    <div class="ref-badge">Klook Ref: RBR019339</div>
+    <div style="font-size:.82rem;color:var(--muted);margin-top:.5rem;">
+      ⚠️ Driver picks up <strong>1h 45min before</strong> departure – be in lobby by ~7:45 AM<br>
+      ⚠️ Cleaning fee at Tonsai Pier: THB 20/person<br>
+      ⚠️ Hotel pickup is shared transfer – expect waiting time
+    </div>
+    <div class="ticket-links">
+      <a href="tickets/ferries/Krabi%20to%20phi%20phi.pdf" target="_blank">📄 Ferry Voucher – Krabi to Phi Phi</a>
+    </div>
+  </div>
+
+  <div class="ferry-card">
+    <div class="flight-label">Ferry 2 · Phi Phi → Phuket</div>
+    <div class="flight-route">Tonsai Pier <span class="arrow">→</span> Rassada Pier</div>
+    <div class="flight-details">
+      <div class="flight-detail"><div class="label">Date</div><div class="value">27 May 2026</div></div>
+      <div class="flight-detail"><div class="label">Departure</div><div class="value">02:30 PM</div></div>
+      <div class="flight-detail"><div class="label">Operator</div><div class="value">Andaman Wave Master</div></div>
+      <div class="flight-detail"><div class="label">Pax</div><div class="value">4 Adults</div></div>
+    </div>
+    <div class="ref-badge">Klook Ref: WGN015258</div>
+    <div style="font-size:.82rem;color:var(--muted);margin-top:.5rem;">
+      ⚠️ Check in at Andaman Wave Master Counter at least <strong>30 min before</strong> departure<br>
+      ⚠️ Cleaning fee at Tonsai Pier: THB 20/person<br>
+      📞 Operator: +66 76 614 139
+    </div>
+    <div class="ticket-links">
+      <a href="tickets/ferries/Phi%20phi%20to%20phuket.PDF" target="_blank">📄 Ferry Voucher – Phi Phi to Phuket</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ HOTELS ═══════════ -->
+<div class="section" id="hotels">
+  <h2 class="section-title"><span class="emoji">🏨</span> Accommodations</h2>
+
+  <!-- Hotel 1 -->
+  <div class="hotel-card">
+    <img class="hotel-img" src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80" alt="Centara Anda Dhevi">
+    <div class="hotel-body">
+      <div class="hotel-name">Centara Anda Dhevi Resort & Spa Krabi</div>
+      <div class="hotel-addr">📍 182 Moo 3, Ao Nang Soi 8, Krabi · ☎️ +66-75-626222</div>
+      <div class="hotel-grid">
+        <div class="hotel-stat"><div class="label">Check-in</div><div class="value">23 May 2026 · 3:00 PM</div></div>
+        <div class="hotel-stat"><div class="label">Check-out</div><div class="value">26 May 2026 · Before 12:00</div></div>
+        <div class="hotel-stat"><div class="label">Rooms</div><div class="value">2 Deluxe King · Pool View</div></div>
+        <div class="hotel-stat"><div class="label">Nights</div><div class="value">3 nights</div></div>
+        <div class="hotel-stat"><div class="label">Guests</div><div class="value">Rahul+Ashik / Room</div></div>
+        <div class="hotel-stat"><div class="label">Meals</div><div class="value">Breakfast included (24, 25, 26 May)</div></div>
+        <div class="hotel-stat"><div class="label">Price</div><div class="value">AED 1,627.92 (Paid)</div></div>
+        <div class="hotel-stat"><div class="label">Confirmation</div><div class="value" style="color:var(--accent);">34980SG107810</div></div>
+      </div>
+      <div class="amenity-tags">
+        <span>🛁 Bathtub</span><span>🚿 Rainfall Shower</span><span>👘 Bathrobes</span>
+        <span>💨 Hair Dryer</span><span>🩴 Slippers</span><span>🧴 Full Toiletries</span>
+      </div>
+      <div class="ticket-links">
+        <a href="tickets/hotels/Centara%20Anta%20Devi%20Krabi.pdf" target="_blank">📄 Booking Confirmation</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hotel 2 -->
+  <div class="hotel-card">
+    <img class="hotel-img" src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800&q=80" alt="Phi Phi Beach Resort">
+    <div class="hotel-body">
+      <div class="hotel-name">Phi Phi The Beach Resort</div>
+      <div class="hotel-addr">📍 177 Moo 7, Phi Phi Island · ☎️ +66 62 191 4945</div>
+      <div class="hotel-grid">
+        <div class="hotel-stat"><div class="label">Check-in</div><div class="value">26 May 2026</div></div>
+        <div class="hotel-stat"><div class="label">Check-out</div><div class="value">27 May 2026</div></div>
+        <div class="hotel-stat"><div class="label">Rooms</div><div class="value">2 Standard Rooms</div></div>
+        <div class="hotel-stat"><div class="label">Nights</div><div class="value">1 night</div></div>
+        <div class="hotel-stat"><div class="label">Meals</div><div class="value">Breakfast included</div></div>
+        <div class="hotel-stat"><div class="label">Price</div><div class="value">~AED 715 (THB 6,300)</div></div>
+        <div class="hotel-stat"><div class="label">Transfer</div><div class="value" style="color:var(--green);">Free boat Tonsai → Resort</div></div>
+        <div class="hotel-stat"><div class="label">Bed</div><div class="value">1 Double bed / room</div></div>
+      </div>
+      <div class="amenity-tags">
+        <span>🏖️ Beach Access</span><span>📺 Flat-screen TV</span><span>❄️ AC</span>
+        <span>🧊 Minibar</span><span>☕ Tea/Coffee Maker</span><span>👘 Bathrobe</span><span>🌿 Balcony & Terrace</span>
+      </div>
+      <div style="margin-top:1rem;padding:1rem;background:var(--card2);border-radius:10px;font-size:.82rem;color:var(--orange);">
+        ⚠️ <strong>Getting there:</strong> After reaching Tonsai Pier, take the resort's <strong>FREE long-tail boat</strong> (~10 min). Staff will be at the pier.
+      </div>
+      <div class="ticket-links">
+        <a href="tickets/hotels/PHI%20PHI%20RESORT.pdf" target="_blank">📄 Booking Confirmation</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hotel 3 -->
+  <div class="hotel-card">
+    <img class="hotel-img" src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80" alt="Burasari Phuket">
+    <div class="hotel-body">
+      <div class="hotel-name">Burasari Phuket Resort</div>
+      <div class="hotel-addr">📍 18, 110 Ruamchai Rd, Pa Tong, Kathu District, Phuket 83150 · ☎️ +66-76-292929</div>
+      <div class="hotel-grid">
+        <div class="hotel-stat"><div class="label">Check-in</div><div class="value">27 May 2026 · After 3:00 PM</div></div>
+        <div class="hotel-stat"><div class="label">Check-out</div><div class="value">29 May 2026 · Before 12:00</div></div>
+        <div class="hotel-stat"><div class="label">Nights</div><div class="value">2 nights</div></div>
+        <div class="hotel-stat"><div class="label">Location</div><div class="value">Patong, near Bangla Road</div></div>
+        <div class="hotel-stat"><div class="label">Contact</div><div class="value" style="font-size:.75rem;">burasariphuket.4rr2ipdal0e30rt@htlpartner.trip.com</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <!-- ═══════════ PLACES ═══════════ -->
 <div class="section" id="places">
