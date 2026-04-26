@@ -67,7 +67,7 @@ body { font-family:'Inter',sans-serif; background:var(--dark); color:var(--text)
   border-radius:10px; padding:.4rem .8rem; backdrop-filter:blur(6px);
 }
 .hero-search input {
-  flex:1; background:none; border:none; color:#fff; font-size:.85rem;
+  flex:1; background:none; border:none; color:#fff; font-size:16px;
   font-family:'Inter',sans-serif; outline:none;
 }
 .hero-search input::placeholder { color:rgba(255,255,255,0.45); }
@@ -78,7 +78,7 @@ body { font-family:'Inter',sans-serif; background:var(--dark); color:var(--text)
   .hero-nav-row { grid-template-columns:repeat(5, 1fr); }
   .hero-nav-row.utils { grid-template-columns:repeat(4, 1fr); }
   .hero-search { margin-top:1rem; }
-  .hero-search input { font-size:.8rem; }
+  .hero-search input { font-size:16px; }
 }
 
 /* NAV (removed - using hero nav only) */
@@ -214,7 +214,7 @@ footer { text-align:center; padding:3rem 1rem; color:var(--muted); font-size:.8r
   .tl-tip { font-size:.75rem; }
   .hero h1 { font-size:2rem; }
   .hero .dates { font-size:1rem; }
-  .hero .travelers span { font-size:.78rem; padding:.4rem .8rem; }
+  .hero .travelers span { font-size:.72rem; padding:.3rem .6rem; }
 }
 
 /* MOBILE NAV (removed) */
@@ -284,8 +284,8 @@ if(sessionStorage.getItem('th_auth')==='1'){
     <h1>Thailand Adventure</h1>
     <p class="dates">21 MAY – 29 MAY 2026</p>
     <p style="color:var(--muted);margin-top:.5rem;">Krabi · Phi Phi · Phuket</p>
-    <div class="travelers">
-      <span>👤 Rahul Raj</span>
+    <div class="travelers" style="gap:.5rem;">
+      <span>👤 Rahul</span>
       <span>👤 Reshma</span>
       <span>👤 Ashik</span>
       <span>👤 Sreya</span>
