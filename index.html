@@ -221,6 +221,7 @@ function doLogin(){
   var p=document.getElementById('loginPass').value.trim();
   if(u==='admin'&&p==='trip'){
     document.getElementById('loginScreen').style.display='none';
+    document.body.style.overflow='';
     sessionStorage.setItem('th_auth','1');
   } else {
     document.getElementById('loginError').style.display='block';
@@ -228,7 +229,11 @@ function doLogin(){
   }
 }
 document.addEventListener('keydown',function(e){if(e.key==='Enter'&&document.getElementById('loginScreen').style.display!=='none')doLogin();});
-if(sessionStorage.getItem('th_auth')==='1') document.getElementById('loginScreen').style.display='none';
+if(sessionStorage.getItem('th_auth')==='1'){
+  document.getElementById('loginScreen').style.display='none';
+} else {
+  document.body.style.overflow='hidden';
+}
 </script>
 
 <!-- HERO -->
@@ -267,6 +272,7 @@ if(sessionStorage.getItem('th_auth')==='1') document.getElementById('loginScreen
     <a href="#tips">💡 Tips</a>
     <a href="#checklist">✅ Checklist</a>
     <a href="#emergency">🆘 Emergency</a>
+    <a href="https://docs.google.com/spreadsheets/d/1dzIQy6Zcm7ewycycDv412xcXfZQd5Zfez8P7z2m3VeM/edit?gid=1178143187#gid=1178143187" target="_blank" style="background:rgba(76,175,80,0.15);border:1px solid rgba(76,175,80,0.4);">💰 Expenses</a>
   </div>
 </nav>
 
