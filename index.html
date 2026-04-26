@@ -49,39 +49,39 @@ body { font-family:'Inter',sans-serif; background:var(--dark); color:var(--text)
 @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(-12px)} }
 
 /* HERO NAV */
-.hero-nav { margin-top:2rem; max-width:650px; }
-.hero-nav-row { display:flex; justify-content:center; gap:.4rem; flex-wrap:wrap; margin-bottom:.4rem; }
+.hero-nav { margin-top:2rem; max-width:680px; }
+.hero-nav-row { display:grid; grid-template-columns:repeat(9, 1fr); gap:.4rem; margin-bottom:.4rem; }
+.hero-nav-row.utils { grid-template-columns:repeat(8, 1fr); }
 .hero-nav a {
   padding:.4rem .75rem; border-radius:8px; text-decoration:none; font-size:.78rem; font-weight:600;
   color:rgba(255,255,255,0.85); background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15);
   backdrop-filter:blur(6px); transition:.25s; text-align:center; white-space:nowrap;
+  min-width:62px;
 }
 .hero-nav a:hover { background:var(--gold); color:var(--dark); border-color:var(--gold); }
 .hero-nav a small { display:block; font-size:.58rem; opacity:.7; margin-top:1px; font-weight:400; }
 .hero-nav a:hover small { opacity:1; }
+.hero-search {
+  margin-top:1.2rem; display:flex; align-items:center; gap:.5rem;
+  background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15);
+  border-radius:10px; padding:.4rem .8rem; backdrop-filter:blur(6px);
+}
+.hero-search input {
+  flex:1; background:none; border:none; color:#fff; font-size:.85rem;
+  font-family:'Inter',sans-serif; outline:none;
+}
+.hero-search input::placeholder { color:rgba(255,255,255,0.45); }
 @media(max-width:600px) {
-  .hero-nav a { font-size:.68rem; padding:.35rem .55rem; flex:1 1 auto; min-width:0; }
+  .hero-nav a { font-size:.68rem; padding:.35rem .5rem; }
   .hero-nav a small { font-size:.5rem; }
   .hero-nav { margin-top:1.5rem; }
+  .hero-nav-row { grid-template-columns:repeat(5, 1fr); }
+  .hero-nav-row.utils { grid-template-columns:repeat(4, 1fr); }
+  .hero-search { margin-top:1rem; }
+  .hero-search input { font-size:.8rem; }
 }
 
-/* NAV */
-.sticky-nav {
-  position:sticky; top:0; z-index:100; background:rgba(15,25,35,0.95); backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(212,168,83,0.2); padding:.6rem .8rem;
-}
-.nav-row { display:flex; justify-content:center; gap:.4rem; flex-wrap:wrap; }
-.nav-row + .nav-row { margin-top:.4rem; }
-.sticky-nav a {
-  padding:.45rem .85rem; border-radius:8px; text-decoration:none; font-size:.78rem; font-weight:600;
-  color:var(--muted); white-space:nowrap; transition:.2s; text-align:center;
-  background:var(--card); border:1px solid rgba(255,255,255,0.06);
-}
-.sticky-nav a:hover, .sticky-nav a.active { background:var(--gold); color:var(--dark); border-color:var(--gold); }
-.sticky-nav a small { display:block; font-size:.58rem; opacity:.65; margin-top:1px; font-weight:400; }
-.sticky-nav a:hover small, .sticky-nav a.active small { opacity:1; }
-.nav-row.utils a { background:transparent; border:1px solid rgba(212,168,83,0.2); font-size:.72rem; padding:.35rem .7rem; }
-.nav-row.utils a:hover, .nav-row.utils a.active { background:var(--gold); color:var(--dark); }
+/* NAV (removed - using hero nav only) */
 .day-focus { display:flex; gap:.6rem; flex-wrap:wrap; margin:-.5rem 0 1rem 0; }
 .day-focus .tag { display:inline-flex; align-items:center; gap:.35rem; background:rgba(212,175,55,0.12); border:1px solid rgba(212,175,55,0.3); color:var(--gold); padding:.35rem .75rem; border-radius:20px; font-size:.78rem; font-weight:600; }
 .day-carry { background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.25); border-radius:12px; padding:1rem 1.2rem; margin-bottom:1rem; font-size:.82rem; line-height:1.7; }
@@ -217,18 +217,7 @@ footer { text-align:center; padding:3rem 1rem; color:var(--muted); font-size:.8r
   .hero .travelers span { font-size:.78rem; padding:.4rem .8rem; }
 }
 
-/* MOBILE NAV */
-@media(max-width:768px) {
-  .sticky-nav { padding:.5rem .5rem; }
-  .nav-row { gap:.3rem; }
-  .nav-row + .nav-row { margin-top:.3rem; }
-  .sticky-nav a {
-    font-size:.68rem; padding:.35rem .55rem; border-radius:6px;
-    flex: 1 1 auto; min-width:0; text-align:center;
-  }
-  .sticky-nav a small { font-size:.5rem; }
-  .nav-row.utils a { font-size:.65rem; padding:.3rem .5rem; }
-}
+/* MOBILE NAV (removed) */
 
 /* RESTAURANT */
 .restaurant { display:inline-flex; align-items:center; gap:.4rem; background:var(--card2); padding:.3rem .8rem; border-radius:8px; margin-top:.3rem; font-size:.85rem; max-width:100%; }
@@ -314,7 +303,7 @@ if(sessionStorage.getItem('th_auth')==='1'){
         <a href="#day6">Day 6<small>Phuket</small></a>
         <a href="#day7">Day 7<small>Home</small></a>
       </div>
-      <div class="hero-nav-row">
+      <div class="hero-nav-row utils">
         <a href="#flights">✈️ Flights</a>
         <a href="#ferries">⛴️ Ferries</a>
         <a href="#hotels">🏨 Hotels</a>
@@ -325,44 +314,17 @@ if(sessionStorage.getItem('th_auth')==='1'){
         <a href="https://docs.google.com/spreadsheets/d/1dzIQy6Zcm7ewycycDv412xcXfZQd5Zfez8P7z2m3VeM/edit?gid=1178143187#gid=1178143187" target="_blank" style="border-color:rgba(76,175,80,0.5);color:#66bb6a;">💰 Expenses</a>
       </div>
     </div>
+    <!-- HERO SEARCH -->
+    <div class="hero-search">
+      <span style="font-size:1rem;">🔍</span>
+      <input id="searchInput" type="text" placeholder="Search itinerary..." autocomplete="off">
+      <span id="searchCount" style="font-size:.7rem;color:rgba(255,255,255,0.5);min-width:40px;text-align:right;"></span>
+      <button id="searchClear" onclick="clearSearch()" style="display:none;background:none;border:none;color:rgba(255,255,255,0.5);font-size:1rem;cursor:pointer;">✕</button>
+    </div>
   </div>
+  <div id="searchResults" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:200;background:var(--card);max-height:60vh;width:90%;max-width:500px;overflow-y:auto;border-radius:14px;border:2px solid var(--gold);box-shadow:0 20px 60px rgba(0,0,0,0.7);"></div>
   <div class="scroll-hint">↓</div>
 </section>
-
-<!-- SEARCH BAR -->
-<div id="searchBar" style="position:sticky;top:0;z-index:110;background:rgba(15,25,35,0.95);backdrop-filter:blur(12px);padding:.5rem 1rem;border-bottom:1px solid rgba(212,168,83,0.15);display:flex;align-items:center;gap:.5rem;">
-  <span style="font-size:1.1rem;">🔍</span>
-  <input id="searchInput" type="text" placeholder="Search itinerary... (restaurant, place, time, tip)" style="flex:1;padding:.55rem .9rem;border-radius:8px;border:1px solid rgba(212,168,83,0.3);background:var(--card);color:var(--text);font-size:.85rem;font-family:'Inter',sans-serif;outline:none;" autocomplete="off">
-  <span id="searchCount" style="font-size:.75rem;color:var(--muted);min-width:50px;text-align:right;"></span>
-  <button id="searchClear" onclick="clearSearch()" style="display:none;background:none;border:none;color:var(--muted);font-size:1rem;cursor:pointer;padding:.2rem .5rem;">✕</button>
-</div>
-<div id="searchResults" style="display:none;position:sticky;top:52px;z-index:109;background:var(--card);max-height:50vh;overflow-y:auto;border-bottom:2px solid var(--gold);box-shadow:0 10px 30px rgba(0,0,0,0.5);">
-</div>
-
-<!-- NAV -->
-<nav class="sticky-nav">
-  <div class="nav-row">
-    <a href="#pre1">Pre-1<small>21 May · TVM</small></a>
-    <a href="#pre2">Pre-2<small>22 May · TVM</small></a>
-    <a href="#day1">Day 1<small>23 May · Krabi</small></a>
-    <a href="#day2">Day 2<small>24 May · Krabi</small></a>
-    <a href="#day3">Day 3<small>25 May · Krabi</small></a>
-    <a href="#day4">Day 4<small>26 May · Phi Phi</small></a>
-    <a href="#day5">Day 5<small>27 May · Phuket</small></a>
-    <a href="#day6">Day 6<small>28 May · Phuket</small></a>
-    <a href="#day7">Day 7<small>29 May · Home</small></a>
-  </div>
-  <div class="nav-row utils">
-    <a href="#flights">✈️ Flights</a>
-    <a href="#ferries">⛴️ Ferries</a>
-    <a href="#hotels">🏨 Hotels</a>
-    <a href="#places">📍 Places</a>
-    <a href="#tips">💡 Tips</a>
-    <a href="#checklist">✅ Checklist</a>
-    <a href="#emergency">🆘 Emergency</a>
-    <a href="https://docs.google.com/spreadsheets/d/1dzIQy6Zcm7ewycycDv412xcXfZQd5Zfez8P7z2m3VeM/edit?gid=1178143187#gid=1178143187" target="_blank" style="border-color:rgba(76,175,80,0.4);color:var(--green);">💰 Expenses</a>
-  </div>
-</nav>
 
 <!-- ═══════════ DAY-BY-DAY ═══════════ -->
 
@@ -1524,18 +1486,6 @@ if(sessionStorage.getItem('th_auth')==='1'){
 </footer>
 
 <script>
-// Active nav highlighting
-const sections = document.querySelectorAll('[id]');
-const navLinks = document.querySelectorAll('.sticky-nav a');
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(s => { if(window.scrollY >= s.offsetTop - 120) current = s.id; });
-  navLinks.forEach(a => {
-    a.classList.remove('active');
-    if(a.getAttribute('href') === '#' + current) a.classList.add('active');
-  });
-});
-
 // Save checklist state
 document.querySelectorAll('.checklist input').forEach((cb, i) => {
   const key = 'check_' + i;
@@ -1638,8 +1588,6 @@ function clearSearch() {
   document.querySelectorAll('.search-hl').forEach(el => el.replaceWith(el.textContent));
 }
 
-// Close search results on scroll
-window.addEventListener('scroll', () => { searchResults.style.display = 'none'; });
 </script>
 </body>
 </html>
