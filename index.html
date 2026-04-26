@@ -1589,5 +1589,23 @@ function clearSearch() {
 }
 
 </script>
+
+<!-- FLOATING BACK TO TOP -->
+<a href="#" id="backToTop" title="Back to Home" style="
+  position:fixed; bottom:1.5rem; right:1.5rem; z-index:150;
+  width:50px; height:50px; border-radius:50%;
+  background:var(--gold); color:var(--dark);
+  display:none; align-items:center; justify-content:center;
+  font-size:1.4rem; text-decoration:none;
+  box-shadow:0 4px 20px rgba(212,175,55,0.4);
+  transition:.3s; border:2px solid rgba(255,255,255,0.15);
+" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">🏠</a>
+
+<script>
+const btt = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+  btt.style.display = window.scrollY > 400 ? 'flex' : 'none';
+});
+</script>
 </body>
 </html>
