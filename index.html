@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🇹🇭 Thailand Trip – May 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #d4a853;
+  --dark: #0f1923;
+  --card: #182633;
+  --card2: #1e3044;
+  --text: #e8e6e1;
+  --muted: #8a9bb0;
+  --accent: #4ecdc4;
+  --red: #ff6b6b;
+  --orange: #ffa726;
+  --blue: #42a5f5;
+  --purple: #ab47bc;
+  --green: #66bb6a;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body { font-family:'Inter',sans-serif; background:var(--dark); color:var(--text); line-height:1.6; }
+
+/* HERO */
+.hero {
+  min-height:100vh; display:flex; align-items:center; justify-content:center; text-align:center;
+  background: linear-gradient(135deg, rgba(15,25,35,0.55), rgba(15,25,35,0.7)),
+    url('https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=1920&q=80') center/cover;
+  position:relative;
+}
+.hero::after {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:120px;
+  background:linear-gradient(transparent, var(--dark));
+}
+.hero-content { position:relative; z-index:1; padding:2rem; }
+.hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2.5rem,6vw,5rem); color:#fff; margin-bottom:.5rem; }
+.hero .flag { font-size:clamp(3rem,8vw,6rem); display:block; margin-bottom:1rem; }
+.hero .dates { font-size:1.3rem; color:var(--gold); font-weight:600; letter-spacing:2px; }
+.hero .travelers { margin-top:1.5rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+.hero .travelers span {
+  background:rgba(255,255,255,0.12); backdrop-filter:blur(10px); padding:.5rem 1.2rem;
+  border-radius:50px; font-size:.9rem; border:1px solid rgba(255,255,255,0.15);
+}
+.scroll-hint { position:absolute; bottom:2rem; left:50%; transform:translateX(-50%); z-index:2; animation:bounce 2s infinite; color:var(--gold); font-size:1.5rem; }
+@keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(-12px)} }
+
+/* NAV */
+.sticky-nav {
+  position:sticky; top:0; z-index:100; background:rgba(15,25,35,0.92); backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(212,168,83,0.2); padding:.8rem 0; overflow-x:auto;
+}
+.sticky-nav .inner { display:flex; gap:.5rem; justify-content:center; padding:0 1rem; min-width:max-content; margin:auto; }
+.sticky-nav a {
+  padding:.5rem 1rem; border-radius:8px; text-decoration:none; font-size:.82rem; font-weight:600;
+  color:var(--muted); white-space:nowrap; transition:.2s;
+}
+.sticky-nav a:hover, .sticky-nav a.active { background:var(--gold); color:var(--dark); }
+.sticky-nav a small { display:block; font-size:.6rem; opacity:.7; margin-top:1px; font-weight:400; }
+.sticky-nav a:hover small, .sticky-nav a.active small { opacity:1; }
+.day-focus { display:flex; gap:.6rem; flex-wrap:wrap; margin:-.5rem 0 1rem 0; }
+.day-focus .tag { display:inline-flex; align-items:center; gap:.35rem; background:rgba(212,175,55,0.12); border:1px solid rgba(212,175,55,0.3); color:var(--gold); padding:.35rem .75rem; border-radius:20px; font-size:.78rem; font-weight:600; }
+.day-carry { background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.25); border-radius:12px; padding:1rem 1.2rem; margin-bottom:1rem; font-size:.82rem; line-height:1.7; }
+.day-carry strong { color:#38bdf8; }
+.day-carry .carry-section { margin-bottom:.3rem; }
+
+/* SECTIONS */
+.section { max-width:1100px; margin:0 auto; padding:3rem 1.5rem; }
+.section-title {
+  font-family:'Playfair Display',serif; font-size:2rem; margin-bottom:2rem;
+  display:flex; align-items:center; gap:.8rem;
+}
+.section-title .emoji { font-size:2.2rem; }
+
+/* FLIGHT CARDS */
+.flight-card {
+  background:var(--card); border-radius:16px; padding:1.5rem 2rem; margin-bottom:1.5rem;
+  border-left:4px solid var(--gold); position:relative; overflow:hidden;
+}
+.flight-card::before {
+  content:'✈️'; position:absolute; right:1.5rem; top:1rem; font-size:2.5rem; opacity:.15;
+}
+.flight-label { font-size:.75rem; text-transform:uppercase; letter-spacing:2px; color:var(--gold); font-weight:700; margin-bottom:.5rem; }
+.flight-route { font-size:1.4rem; font-weight:700; margin-bottom:.3rem; }
+.flight-route .arrow { color:var(--gold); margin:0 .5rem; }
+.flight-details { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1rem; margin-top:1rem; }
+.flight-detail { }
+.flight-detail .label { font-size:.7rem; text-transform:uppercase; letter-spacing:1px; color:var(--muted); }
+.flight-detail .value { font-size:.95rem; font-weight:600; }
+.passenger-tags { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:1rem; }
+.passenger-tags span { background:var(--card2); padding:.3rem .8rem; border-radius:20px; font-size:.78rem; }
+.ref-badge { display:inline-block; font-family:'JetBrains Mono',monospace; background:var(--card2); padding:.2rem .7rem; border-radius:6px; font-size:.8rem; color:var(--accent); margin-top:.5rem; }
+
+/* HOTEL CARDS */
+.hotel-card {
+  background:var(--card); border-radius:16px; overflow:hidden; margin-bottom:2rem;
+}
+.hotel-img { width:100%; height:250px; object-fit:cover; }
+.hotel-body { padding:1.5rem 2rem; }
+.hotel-name { font-family:'Playfair Display',serif; font-size:1.5rem; margin-bottom:.3rem; }
+.hotel-addr { color:var(--muted); font-size:.85rem; margin-bottom:1rem; }
+.hotel-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1rem; margin:1rem 0; }
+.hotel-stat .label { font-size:.7rem; text-transform:uppercase; letter-spacing:1px; color:var(--muted); }
+.hotel-stat .value { font-weight:600; font-size:.95rem; }
+.amenity-tags { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:1rem; }
+.amenity-tags span { background:var(--card2); padding:.25rem .7rem; border-radius:16px; font-size:.75rem; color:var(--accent); }
+
+/* DAY CARDS */
+.day-section { margin-bottom:3rem; }
+.day-header {
+  display:flex; align-items:center; gap:1rem; margin-bottom:1.5rem; padding:1rem 1.5rem;
+  background:linear-gradient(135deg, var(--card), var(--card2)); border-radius:14px;
+  border-left:4px solid var(--gold);
+}
+.day-num { font-family:'Playfair Display',serif; font-size:2.5rem; font-weight:700; color:var(--gold); line-height:1; }
+.day-info .day-date { font-size:1.1rem; font-weight:700; }
+.day-info .day-sub { font-size:.85rem; color:var(--muted); }
+
+.timeline { position:relative; padding-left:2rem; }
+.timeline::before { content:''; position:absolute; left:8px; top:0; bottom:0; width:2px; background:var(--card2); }
+.tl-item { position:relative; margin-bottom:1.2rem; padding-left:1.5rem; }
+.tl-item::before {
+  content:''; position:absolute; left:-1.55rem; top:.5rem; width:12px; height:12px;
+  border-radius:50%; background:var(--gold); border:2px solid var(--dark);
+}
+.tl-item.buffer::before { background:var(--muted); }
+.tl-time { font-family:'JetBrains Mono',monospace; font-size:.8rem; color:var(--gold); font-weight:600; }
+.tl-text { font-size:.95rem; }
+.tl-tip { font-size:.8rem; color:var(--muted); font-style:italic; margin-top:.2rem; }
+
+.day-photo {
+  width:100%; height:220px; object-fit:cover; border-radius:12px; margin-bottom:1.5rem;
+}
+
+/* PLACE HIGHLIGHT */
+.place-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.5rem; }
+.place-card { background:var(--card); border-radius:14px; overflow:hidden; transition:transform .2s; }
+.place-card:hover { transform:translateY(-4px); }
+.place-card img { width:100%; height:200px; object-fit:cover; }
+.place-card .body { padding:1.2rem; }
+.place-card h3 { font-size:1.1rem; margin-bottom:.3rem; }
+.place-card p { font-size:.85rem; color:var(--muted); }
+
+/* TIPS */
+.tips-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1.2rem; }
+.tip-card {
+  background:var(--card); padding:1.3rem; border-radius:12px; border-left:3px solid var(--accent);
+}
+.tip-card .tip-icon { font-size:1.5rem; margin-bottom:.5rem; }
+.tip-card h4 { font-size:.95rem; margin-bottom:.3rem; }
+.tip-card p { font-size:.83rem; color:var(--muted); }
+
+/* EMERGENCY */
+.emergency-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1rem; }
+.emer-card { background:var(--card); padding:1.2rem; border-radius:12px; text-align:center; }
+.emer-card .icon { font-size:2rem; margin-bottom:.5rem; }
+.emer-card h4 { font-size:.9rem; margin-bottom:.3rem; }
+.emer-card .num { font-family:'JetBrains Mono',monospace; font-size:1.1rem; color:var(--accent); }
+
+/* FERRY */
+.ferry-card {
+  background:var(--card); border-radius:16px; padding:1.5rem 2rem; margin-bottom:1.5rem;
+  border-left:4px solid var(--blue);
+}
+.ferry-card .flight-label { color:var(--blue); }
+
+/* FOOTER */
+footer { text-align:center; padding:3rem 1rem; color:var(--muted); font-size:.8rem; border-top:1px solid var(--card2); }
+
+/* RESPONSIVE */
+@media(max-width:600px) {
+  .flight-details { grid-template-columns:1fr 1fr; }
+  .hotel-grid { grid-template-columns:1fr 1fr; }
+  .place-grid, .tips-grid, .emergency-grid { grid-template-columns:1fr; }
+  .sticky-nav .inner { justify-content:flex-start; }
+}
+
+/* RESTAURANT */
+.restaurant { display:inline-flex; align-items:center; gap:.4rem; background:var(--card2); padding:.3rem .8rem; border-radius:8px; margin-top:.3rem; font-size:.85rem; }
+.restaurant a { color:var(--orange); text-decoration:none; }
+.restaurant a:hover { text-decoration:underline; }
+
+/* CHECKLIST */
+.checklist { columns:2; column-gap:2rem; }
+.checklist label { display:flex; align-items:center; gap:.5rem; padding:.4rem 0; font-size:.9rem; cursor:pointer; }
+.checklist input[type=checkbox] { accent-color:var(--gold); width:18px; height:18px; }
+
+@media(max-width:600px) { .checklist { columns:1; } }
+
+/* TICKET LINKS */
+.ticket-links { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1rem; }
+.ticket-links a {
+  display:inline-flex; align-items:center; gap:.4rem; background:var(--card2); padding:.4rem .9rem;
+  border-radius:8px; font-size:.78rem; color:var(--accent); text-decoration:none; border:1px solid rgba(78,205,196,0.2); transition:.2s;
+}
+.ticket-links a:hover { background:var(--accent); color:var(--dark); border-color:var(--accent); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <span class="flag">🇹🇭</span>
+    <h1>Thailand Adventure</h1>
+    <p class="dates">21 MAY – 29 MAY 2026</p>
+    <p style="color:var(--muted);margin-top:.5rem;">Krabi · Phi Phi · Phuket</p>
+    <div class="travelers">
+      <span>👤 Rahul Raj</span>
+      <span>👤 Reshma</span>
+      <span>👤 Ashik</span>
+      <span>👤 Sreya</span>
+    </div>
+  </div>
+  <div class="scroll-hint">↓</div>
+</section>
+
+<!-- NAV -->
+<nav class="sticky-nav">
+  <div class="inner">
+    <a href="#flights">✈️ Flights</a>
+    <a href="#ferries">⛴️ Ferries</a>
+    <a href="#hotels">🏨 Hotels</a>
+    <a href="#pre1">Pre-1 <small>21 May</small><small>📍 Trivandrum</small></a>
+    <a href="#pre2">Pre-2 <small>22 May</small><small>📍 Trivandrum</small></a>
+    <a href="#day1">Day 1 <small>23 May</small><small>📍 Krabi</small></a>
+    <a href="#day2">Day 2 <small>24 May</small><small>📍 Krabi</small></a>
+    <a href="#day3">Day 3 <small>25 May</small><small>📍 Krabi</small></a>
+    <a href="#day4">Day 4 <small>26 May</small><small>📍 Phi Phi</small></a>
+    <a href="#day5">Day 5 <small>27 May</small><small>📍 Phi Phi → Phuket</small></a>
+    <a href="#day6">Day 6 <small>28 May</small><small>📍 Phuket</small></a>
+    <a href="#day7">Day 7 <small>29 May</small><small>📍 Phuket → Home</small></a>
+    <a href="#places">📍 Places</a>
+    <a href="#tips">💡 Tips</a>
+    <a href="#checklist">✅ Checklist</a>
+    <a href="#emergency">🆘 Emergency</a>
+  </div>
+</nav>
+
+<!-- ═══════════ FLIGHTS ═══════════ -->
+<div class="section" id="flights">
+  <h2 class="section-title"><span class="emoji">✈️</span> All Flights</h2>
+
+  <!-- Flight 1: AUH → TRV -->
+  <div class="flight-card">
+    <div class="flight-label">Flight 1 · Etihad Airways</div>
+    <div class="flight-route">AUH <span class="arrow">→</span> TRV</div>
+    <div style="font-size:.85rem;color:var(--muted);">Abu Dhabi → Thiruvananthapuram</div>
+    <div class="flight-details">
+      <div class="flight-detail"><div class="label">Date</div><div class="value">21 May 2026</div></div>
+      <div class="flight-detail"><div class="label">Departure</div><div class="value">14:25 (AUH)</div></div>
+      <div class="flight-detail"><div class="label">Arrival</div><div class="value">21 May (TRV)</div></div>
+      <div class="flight-detail"><div class="label">Aircraft</div><div class="value">Airbus A321</div></div>
+      <div class="flight-detail"><div class="label">Terminal</div><div class="value">T3 → Terminal A</div></div>
+      <div class="flight-detail"><div class="label">Duration</div><div class="value">~4h 30m · Nonstop</div></div>
+    </div>
+    <div class="passenger-tags">
+      <span>👤 Rahul Raj Valia Veetil</span><span>👤 Reshma Vikraman</span>
+      <span>👤 Ashik Puthiya Veettil</span><span>👤 Sreya Alakkandi</span>
+    </div>
+    <div class="ref-badge">PNR: 7Q9F9G</div>
+    <div style="font-size:.8rem;color:var(--muted);margin-top:.5rem;">Checked baggage: 23kg (Rahul & Reshma: 23kg per bag) | Status: CONFIRMED</div>
+    <div class="ticket-links">
+      <a href="tickets/auh-trv/RAHUL%20RAJ%20VALIA%20VEETIL%207Q9F9G%2021MAY%201425%20AUH.pdf" target="_blank">📄 Rahul</a>
+      <a href="tickets/auh-trv/RESHMA%20VIKRAMAN%207Q9F9G%2021MAY%201425%20AUH.pdf" target="_blank">📄 Reshma</a>
+      <a href="tickets/auh-trv/ASHIK%20PUTHIYA%20VEETTIL%207Q9F9G%2021MAY%201425%20AUH.pdf" target="_blank">📄 Ashik</a>
+      <a href="tickets/auh-trv/SREYA%20ALAKKANDI%207Q9F9G%2021MAY%201425%20AUH.pdf" target="_blank">📄 Sreya</a>
+    </div>
+  </div>
+
+  <!-- Flight 2: TRV → HKT via SIN -->
+  <div class="flight-card">
+    <div class="flight-label">Flight 2 · Scoot (via Singapore)</div>
+    <div class="flight-route">TRV <span class="arrow">→</span> SIN <span class="arrow">→</span> HKT</div>
+    <div style="font-size:.85rem;color:var(--muted);">Thiruvananthapuram → Singapore Changi → Phuket</div>
+    <div class="flight-details">
+      <div class="flight-detail"><div class="label">Leg 1</div><div class="value">TR731 · 22 May 23:15</div></div>
+      <div class="flight-detail"><div class="label">Arrive SIN</div><div class="value">23 May 06:30</div></div>
+      <div class="flight-detail"><div class="label">Layover</div><div class="value">1h 00m (T1)</div></div>
+      <div class="flight-detail"><div class="label">Leg 2</div><div class="value">TR658 · 23 May 07:30</div></div>
+      <div class="flight-detail"><div class="label">Arrive HKT</div><div class="value">23 May 08:20</div></div>
+      <div class="flight-detail"><div class="label">Aircraft</div><div class="value">A321neo</div></div>
+    </div>
+    <div style="margin-top:.8rem;font-size:.85rem;">
+      <strong>Seats:</strong> Rahul 25A · Reshma 25B · Ashik 26A · Sreya 26B &nbsp;|&nbsp;
+      <strong>Baggage:</strong> 20kg check-in each
+    </div>
+    <div class="ref-badge">PNR: D7NJVS</div>
+    <div class="ticket-links">
+      <a href="tickets/trv-hkt/TRV%20to%20HKT.pdf" target="_blank">📄 All 4 Passengers – Scoot Booking</a>
+    </div>
+  </div>
+
+  <!-- Flight 3: HKT → AUH -->
+  <div class="flight-card">
+    <div class="flight-label">Flight 3 · Etihad Airways (Return) · ⚠️ RESCHEDULED</div>
+    <div class="flight-route">HKT <span class="arrow">→</span> AUH</div>
+    <div style="font-size:.85rem;color:var(--muted);">Phuket → Abu Dhabi (via connection)</div>
+    <div class="flight-details">
+      <div class="flight-detail"><div class="label">Flight</div><div class="value">EY417 → EY413</div></div>
+      <div class="flight-detail"><div class="label">Departure</div><div class="value" style="color:var(--orange);">20:25 · 29 May</div></div>
+      <div class="flight-detail"><div class="label">Arrival AUH</div><div class="value" style="color:var(--orange);">00:40 · 30 May</div></div>
+      <div class="flight-detail"><div class="label">Aircraft</div><div class="value">A321LR + Boeing 777-300ER</div></div>
+      <div class="flight-detail"><div class="label">Terminal</div><div class="value">Terminal I → Terminal A</div></div>
+      <div class="flight-detail"><div class="label">Duration</div><div class="value">~6h 20m</div></div>
+    </div>
+    <div class="passenger-tags">
+      <span>👤 Rahul & Reshma – <code style="color:var(--accent);">7RRHK7</code></span>
+      <span>👤 Ashik & Sreya – <code style="color:var(--accent);">7R8J79</code></span>
+    </div>
+    <div class="ticket-links">
+      <a href="tickets/hkt-auh/RAHUL%20RAJ%20VALIA%20VEETIL%207RRHK7%2029MAY%201520%20HKT.pdf" target="_blank">📄 Rahul</a>
+      <a href="tickets/hkt-auh/RESHMA%20VIKRAMAN%207RRHK7%2029MAY%201520%20HKT.pdf" target="_blank">📄 Reshma</a>
+      <a href="tickets/hkt-auh/ASHIK%20PUTHIYA%20VEETTIL%207R8J79%2029MAY%201520%20HKT.pdf" target="_blank">📄 Ashik</a>
+      <a href="tickets/hkt-auh/SREYA%20ALAKKANDI%207R8J79%2029MAY%201520%20HKT.pdf" target="_blank">📄 Sreya</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ FERRIES ═══════════ -->
+<div class="section" id="ferries">
+  <h2 class="section-title"><span class="emoji">⛴️</span> Ferry Transfers</h2>
+
+  <div class="ferry-card">
+    <div class="flight-label">Ferry 1 · Krabi → Phi Phi</div>
+    <div class="flight-route">Nopparat-Thara Pier <span class="arrow">→</span> Tonsai Pier</div>
+    <div class="flight-details">
+      <div class="flight-detail"><div class="label">Date</div><div class="value">26 May 2026</div></div>
+      <div class="flight-detail"><div class="label">Departure</div><div class="value">09:30 AM</div></div>
+      <div class="flight-detail"><div class="label">Pickup</div><div class="value">Centara Anda Dhevi</div></div>
+      <div class="flight-detail"><div class="label">Pax</div><div class="value">4 Adults</div></div>
+    </div>
+    <div class="ref-badge">Klook Ref: RBR019339</div>
+    <div style="font-size:.82rem;color:var(--muted);margin-top:.5rem;">
+      ⚠️ Driver picks up <strong>1h 45min before</strong> departure – be in lobby by ~7:45 AM<br>
+      ⚠️ Cleaning fee at Tonsai Pier: THB 20/person<br>
+      ⚠️ Hotel pickup is shared transfer – expect waiting time
+    </div>
+    <div class="ticket-links">
+      <a href="tickets/ferries/Krabi%20to%20phi%20phi.pdf" target="_blank">📄 Ferry Voucher – Krabi to Phi Phi</a>
+    </div>
+  </div>
+
+  <div class="ferry-card">
+    <div class="flight-label">Ferry 2 · Phi Phi → Phuket</div>
+    <div class="flight-route">Tonsai Pier <span class="arrow">→</span> Rassada Pier</div>
+    <div class="flight-details">
+      <div class="flight-detail"><div class="label">Date</div><div class="value">27 May 2026</div></div>
+      <div class="flight-detail"><div class="label">Departure</div><div class="value">02:30 PM</div></div>
+      <div class="flight-detail"><div class="label">Operator</div><div class="value">Andaman Wave Master</div></div>
+      <div class="flight-detail"><div class="label">Pax</div><div class="value">4 Adults</div></div>
+    </div>
+    <div class="ref-badge">Klook Ref: WGN015258</div>
+    <div style="font-size:.82rem;color:var(--muted);margin-top:.5rem;">
+      ⚠️ Check in at Andaman Wave Master Counter at least <strong>30 min before</strong> departure<br>
+      ⚠️ Cleaning fee at Tonsai Pier: THB 20/person<br>
+      📞 Operator: +66 76 614 139
+    </div>
+    <div class="ticket-links">
+      <a href="tickets/ferries/Phi%20phi%20to%20phuket.PDF" target="_blank">📄 Ferry Voucher – Phi Phi to Phuket</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ HOTELS ═══════════ -->
+<div class="section" id="hotels">
+  <h2 class="section-title"><span class="emoji">🏨</span> Accommodations</h2>
+
+  <!-- Hotel 1 -->
+  <div class="hotel-card">
+    <img class="hotel-img" src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80" alt="Centara Anda Dhevi">
+    <div class="hotel-body">
+      <div class="hotel-name">Centara Anda Dhevi Resort & Spa Krabi</div>
+      <div class="hotel-addr">📍 182 Moo 3, Ao Nang Soi 8, Krabi · ☎️ +66-75-626222</div>
+      <div class="hotel-grid">
+        <div class="hotel-stat"><div class="label">Check-in</div><div class="value">23 May 2026 · 3:00 PM</div></div>
+        <div class="hotel-stat"><div class="label">Check-out</div><div class="value">26 May 2026 · Before 12:00</div></div>
+        <div class="hotel-stat"><div class="label">Rooms</div><div class="value">2 Deluxe King · Pool View</div></div>
+        <div class="hotel-stat"><div class="label">Nights</div><div class="value">3 nights</div></div>
+        <div class="hotel-stat"><div class="label">Guests</div><div class="value">Rahul+Ashik / Room</div></div>
+        <div class="hotel-stat"><div class="label">Meals</div><div class="value">Breakfast included (24, 25, 26 May)</div></div>
+        <div class="hotel-stat"><div class="label">Price</div><div class="value">AED 1,627.92 (Paid)</div></div>
+        <div class="hotel-stat"><div class="label">Confirmation</div><div class="value" style="color:var(--accent);">34980SG107810</div></div>
+      </div>
+      <div class="amenity-tags">
+        <span>🛁 Bathtub</span><span>🚿 Rainfall Shower</span><span>👘 Bathrobes</span>
+        <span>💨 Hair Dryer</span><span>🩴 Slippers</span><span>🧴 Full Toiletries</span>
+      </div>
+      <div class="ticket-links">
+        <a href="tickets/hotels/Centara%20Anta%20Devi%20Krabi.pdf" target="_blank">📄 Booking Confirmation</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hotel 2 -->
+  <div class="hotel-card">
+    <img class="hotel-img" src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800&q=80" alt="Phi Phi Beach Resort">
+    <div class="hotel-body">
+      <div class="hotel-name">Phi Phi The Beach Resort</div>
+      <div class="hotel-addr">📍 177 Moo 7, Phi Phi Island · ☎️ +66 62 191 4945</div>
+      <div class="hotel-grid">
+        <div class="hotel-stat"><div class="label">Check-in</div><div class="value">26 May 2026</div></div>
+        <div class="hotel-stat"><div class="label">Check-out</div><div class="value">27 May 2026</div></div>
+        <div class="hotel-stat"><div class="label">Rooms</div><div class="value">2 Standard Rooms</div></div>
+        <div class="hotel-stat"><div class="label">Nights</div><div class="value">1 night</div></div>
+        <div class="hotel-stat"><div class="label">Meals</div><div class="value">Breakfast included</div></div>
+        <div class="hotel-stat"><div class="label">Price</div><div class="value">~AED 715 (THB 6,300)</div></div>
+        <div class="hotel-stat"><div class="label">Transfer</div><div class="value" style="color:var(--green);">Free boat Tonsai → Resort</div></div>
+        <div class="hotel-stat"><div class="label">Bed</div><div class="value">1 Double bed / room</div></div>
+      </div>
+      <div class="amenity-tags">
+        <span>🏖️ Beach Access</span><span>📺 Flat-screen TV</span><span>❄️ AC</span>
+        <span>🧊 Minibar</span><span>☕ Tea/Coffee Maker</span><span>👘 Bathrobe</span><span>🌿 Balcony & Terrace</span>
+      </div>
+      <div style="margin-top:1rem;padding:1rem;background:var(--card2);border-radius:10px;font-size:.82rem;color:var(--orange);">
+        ⚠️ <strong>Getting there:</strong> After reaching Tonsai Pier, take the resort's <strong>FREE long-tail boat</strong> (~10 min). Staff will be at the pier.
+      </div>
+      <div class="ticket-links">
+        <a href="tickets/hotels/PHI%20PHI%20RESORT.pdf" target="_blank">📄 Booking Confirmation</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hotel 3 -->
+  <div class="hotel-card">
+    <img class="hotel-img" src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80" alt="Burasari Phuket">
+    <div class="hotel-body">
+      <div class="hotel-name">Burasari Phuket Resort</div>
+      <div class="hotel-addr">📍 18, 110 Ruamchai Rd, Pa Tong, Kathu District, Phuket 83150 · ☎️ +66-76-292929</div>
+      <div class="hotel-grid">
+        <div class="hotel-stat"><div class="label">Check-in</div><div class="value">27 May 2026 · After 3:00 PM</div></div>
+        <div class="hotel-stat"><div class="label">Check-out</div><div class="value">29 May 2026 · Before 12:00</div></div>
+        <div class="hotel-stat"><div class="label">Nights</div><div class="value">2 nights</div></div>
+        <div class="hotel-stat"><div class="label">Location</div><div class="value">Patong, near Bangla Road</div></div>
+        <div class="hotel-stat"><div class="label">Contact</div><div class="value" style="font-size:.75rem;">burasariphuket.4rr2ipdal0e30rt@htlpartner.trip.com</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ DAY-BY-DAY ═══════════ -->
+
+<!-- PRE-TRIP DAY 1 -->
+<div class="section" id="pre1">
+  <div class="day-section">
+    <div class="day-header">
+      <div class="day-num" style="font-size:1.8rem;">PRE</div>
+      <div class="day-info">
+        <div class="day-date">Pre-Trip Day 1 · 21 May 2026 · Thursday</div>
+        <div class="day-sub">Abu Dhabi → Trivandrum | Stay: <a href="https://maps.app.goo.gl/zst9zxvhubog5VcPA" target="_blank" style="color:var(--accent);text-decoration:none;">RARE VILLA 📍</a></div>
+      </div>
+    </div>
+    <img class="day-photo" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" alt="Rare Villa">
+    <div style="background:var(--card);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.5rem;border-left:4px solid var(--green);">
+      <div style="font-size:1.1rem;font-weight:700;margin-bottom:.3rem;">🏡 RARE VILLA</div>
+      <div style="font-size:.85rem;color:var(--muted);">📍 MRA A 176/1, Kallampally, Thiruvananthapuram, Kerala 695011, India</div>
+      <div style="margin-top:.5rem;"><a href="https://maps.app.goo.gl/zst9zxvhubog5VcPA" target="_blank" style="color:var(--accent);font-size:.85rem;text-decoration:none;">🗺️ Open in Google Maps</a></div>
+    </div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-time">14:25</div><div class="tl-text">✈️ Etihad EY · AUH → TRV (Depart Abu Dhabi)</div></div>
+      <div class="tl-item"><div class="tl-time">~20:55</div><div class="tl-text">🛬 Arrive Thiruvananthapuram</div></div>
+      <div class="tl-item"><div class="tl-time">Night</div><div class="tl-text">🏡 Home to <a href="https://maps.app.goo.gl/zst9zxvhubog5VcPA" target="_blank" style="color:var(--accent);text-decoration:none;">RARE VILLA</a> – relax, unwind</div></div>
+      <div class="tl-item buffer"><div class="tl-time">10:30 PM</div><div class="tl-text">😴 Bedtime – get a good night's rest!</div>
+        <div class="tl-tip">💡 You'll need energy tomorrow – full day + late night flight at 23:15. Aim for ~8 hours sleep.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DAY 2 -->
+<div class="section" id="pre2">
+  <div class="day-section">
+    <div class="day-header">
+      <div class="day-num" style="font-size:1.8rem;">PRE</div>
+      <div class="day-info">
+        <div class="day-date">Pre-Trip Day 2 · 22 May 2026 · Friday</div>
+        <div class="day-sub">Relax at RARE VILLA → Late Night Flight to Thailand</div>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="tl-item buffer"><div class="tl-time">All Day</div><div class="tl-text">🏡 Relax at RARE VILLA – family time, rest before the big trip</div>
+        <div class="tl-tip">💡 Last-minute packing. Buy snacks for the Scoot flight (no free meals onboard). Keep passport & tickets ready.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">08:00 PM</div><div class="tl-text">🚗 Leave for TRV Airport (arrive 2.5 hrs before)</div></div>
+      <div class="tl-item"><div class="tl-time">20:45</div><div class="tl-text">🛫 Check in at Scoot counter, Terminal 2</div></div>
+      <div class="tl-item"><div class="tl-time">23:15</div><div class="tl-text">✈️ Scoot TR731 · TRV → SIN (4h 45m)</div>
+        <div class="tl-tip">⚠️ Try to sleep on this flight! You land at 6:30 AM Singapore with only 1hr layover. Keep SIN→HKT boarding pass handy.</div>
+      </div>
+      <div class="tl-item buffer"><div class="tl-time">11:30 PM</div><div class="tl-text">😴 Sleep on the plane! (~5 hrs possible)</div>
+        <div class="tl-tip">💡 Bring neck pillow & eye mask. You land at 6:30 AM SIN → 8:20 AM HKT → long day ahead in Krabi. Every minute of sleep counts!</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DAY 3 -->
+<div class="section" id="day1">
+  <div class="day-section">
+    <div class="day-header">
+      <div class="day-num">01</div>
+      <div class="day-info">
+        <div class="day-date">Day 1 · 23 May 2026 · Saturday</div>
+        <div class="day-sub">Phuket Arrival → Krabi | Stay: Centara Anda Dhevi</div>
+      </div>
+    </div>
+    <img class="day-photo" src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=800&q=80" alt="Ao Nang Beach Krabi">
+    <div class="day-focus">
+      <span class="tag">🏖️ Ao Nang Beach</span>
+      <span class="tag">🍜 Krabi Night Market</span>
+      <span class="tag">💆 Thai Massage</span>
+      <span class="tag">📍 Krabi</span>
+    </div>
+    <div class="timeline">
+      <div class="day-carry">
+        <div class="carry-section">👕 <strong>What to Wear:</strong> Comfortable travel clothes (light T-shirt + shorts/pants). Sneakers or sandals for travel. Evening: casual wear + flip-flops for beach walk.</div>
+        <div class="carry-section">🎒 <strong>What to Carry:</strong> Passport, phone, power bank, sunscreen, sunglasses, hat, water bottle, Thai Baht cash, hotel booking printout.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">08:20 AM</div><div class="tl-text">🛬 Land at Phuket Airport (HKT)</div></div>
+      <div class="tl-item buffer"><div class="tl-time">08:20 – 10:30 AM</div><div class="tl-text">Immigration + Buy SIM card + Currency exchange</div>
+        <div class="tl-tip">💡 Get a Thai SIM at the airport (AIS/True/DTAC ~300-400 THB for tourist pack). Exchange small amount; ATMs everywhere.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">10:30 AM – 01:30 PM</div><div class="tl-text">🚗 Travel Phuket → Krabi (~3 hours)</div>
+        <div class="tl-tip">💡 Pre-book a private van/taxi. Scenic coastal route!</div>
+      </div>
+      <div class="tl-item buffer"><div class="tl-time">01:30 – 03:30 PM</div><div class="tl-text">Check-in at Centara Anda Dhevi + Rest</div></div>
+      <div class="tl-item"><div class="tl-time">05:00 PM</div><div class="tl-text">🏖️ Ao Nang Beach – sunset walk</div></div>
+      <div class="tl-item"><div class="tl-time">06:30 PM</div><div class="tl-text">🍽️ Dinner – pick one!</div>
+        <div class="restaurant">🍴 <a href="https://maps.google.com/?q=Kodam+Kitchen+Krabi" target="_blank">Kodam Kitchen</a> – Thai fusion, cozy vibe</div>
+        <div class="restaurant">🍴 <a href="https://maps.google.com/?q=The+Hilltop+Ao+Nang" target="_blank">The Hilltop</a> – rooftop views, cocktails & Thai food</div>
+        <div class="restaurant">🍴 <a href="https://maps.google.com/?q=Ao+Nang+Cuisine+Krabi" target="_blank">Ao Nang Cuisine</a> – authentic local Thai, budget-friendly</div>
+        <div class="restaurant">🦐 <a href="https://maps.google.com/?q=Ton+Ma+Yom+Krabi" target="_blank">Ton Ma Yom</a> – seafood by the beach</div>
+        <div class="tl-tip">💡 Ao Nang has tons of restaurants along the main road. Most have English menus. Try Tom Kha Gai (coconut chicken soup) for your first Thai meal!</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">08:00 PM</div><div class="tl-text">🌙 Ao Nang Night Walk – explore the strip!</div>
+        <div class="tl-tip">💡 The main road comes alive at night with street vendors, massage shops (~300 THB/hr), souvenir stalls, and live music bars.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">08:30 PM</div><div class="tl-text">💆 Thai Massage – the perfect jet-lag cure!</div>
+        <div class="tl-tip">💡 Tons of massage shops along Ao Nang road. ~250-400 THB for 1 hour Thai or oil massage. Negotiate if going as a group!</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">09:30 PM</div><div class="tl-text">🍹 Drinks at a beach bar</div>
+        <div class="restaurant">🍹 <a href="https://maps.google.com/?q=Last+Fisherman+Bar+Ao+Nang" target="_blank">Last Fisherman Bar</a> – iconic cliffside bar with sea views</div>
+        <div class="restaurant">🍹 <a href="https://maps.google.com/?q=Center+Point+Bar+Ao+Nang" target="_blank">Center Point Bar</a> – live music, chill vibes</div>
+        <div class="tl-tip">💡 Last Fisherman Bar is at the end of Ao Nang beach – stunning spot for your first night in Thailand! 🌊</div>
+      </div>
+      <div class="tl-item buffer"><div class="tl-time">10:30 PM</div><div class="tl-text">😴 Bedtime – you need it after 24+ hours of travel!</div>
+        <div class="tl-tip">💡 Sleep by 10:30 PM → Wake 7:30 AM = ~9 hrs. Your body needs this after the red-eye! Tomorrow: Railay Beach day.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DAY 4 -->
+<div class="section" id="day2">
+  <div class="day-section">
+    <div class="day-header">
+      <div class="day-num">02</div>
+      <div class="day-info">
+        <div class="day-date">Day 2 · 24 May 2026 · Sunday</div>
+        <div class="day-sub">Railay Beach Day | Stay: Centara Anda Dhevi</div>
+      </div>
+    </div>
+    <img class="day-photo" src="https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?w=800&q=80" alt="Railay Beach">
+    <div class="day-focus">
+      <span class="tag">⛵ Railay Beach (Boat Trip)</span>
+      <span class="tag">🏞️ Phra Nang Cave Beach</span>
+      <span class="tag">🌙 Night Market</span>
+      <span class="tag">📍 Krabi</span>
+    </div>
+    <div class="timeline">
+      <div class="day-carry">
+        <div class="carry-section">👙 <strong>What to Wear:</strong> Swimsuit/bikini UNDER clothes (saves changing time). Light top + shorts over it. Flip-flops for the boat. Carry a sarong/cover-up for lunch.</div>
+        <div class="carry-section">🎒 <strong>What to Carry:</strong> Waterproof phone pouch, sunscreen SPF50+, sunglasses, hat, reef shoes (rocky paths), towel, cash (~500 THB), water bottle, after-sun gel.</div>
+        <div class="carry-section">⚠️ <strong>Tan Alert:</strong> Avoid direct sun 11:30 AM – 2:30 PM! Stay in shade, snorkel, explore caves, or have lunch during peak hours. Reapply sunscreen every 90 min!</div>
+      </div>
+      <div class="tl-item buffer"><div class="tl-time">07:30 – 09:00 AM</div><div class="tl-text">Wake up + Breakfast at hotel + Get ready</div></div>
+      <div class="tl-item"><div class="tl-time">09:00 AM</div><div class="tl-text">🚶 Walk to Ao Nang Pier</div></div>
+      <div class="tl-item"><div class="tl-time">09:15 AM</div><div class="tl-text">🚤 Longtail boat to Railay Beach (~15 min, ~100-150 THB/person)</div></div>
+      <div class="tl-item"><div class="tl-time">09:30 AM</div><div class="tl-text">🏖️ Arrive at Railay West Beach</div>
+        <div class="tl-tip">💡 Railay is a peninsula only accessible by boat – no roads! You'll be dropped at Railay West, the main tourist beach with stunning limestone cliffs.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">09:30 – 10:30 AM</div><div class="tl-text">🏊 Swim & relax at Railay West Beach (☀️ morning sun — safe!)</div>
+        <div class="tl-tip">💡 Crystal clear water, soft sand, dramatic cliffs on both sides. Rent a beach mat (~100 THB) or use your towel. Great for photos!</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">10:30 AM</div><div class="tl-text">🚶 Walk from Railay West → Phra Nang Cave Beach (~10-15 min)</div>
+        <div class="tl-tip">💡 Follow the path heading south through jungle between resorts. Follow signs to "Phra Nang Beach". Wear flip-flops – path can be rocky.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">10:45 – 11:30 AM</div><div class="tl-text">🏖️ Phra Nang Cave Beach — THE highlight! (☀️ swim before noon!)</div>
+        <div class="tl-tip">💡 Ranked among the world's TOP 10 beaches! Turquoise water, towering cliffs, the famous Princess Cave filled with offerings. Swim, snorkel, kayak (~300-500 THB/hr) to explore hidden lagoons!</div>
+        <div class="restaurant">🍴 Buy fresh fruit, grilled corn & drinks from longtail boat vendors on the beach (~40-80 THB)</div>
+      </div>
+      <div class="tl-item buffer"><div class="tl-time">11:30 AM – 02:30 PM</div><div class="tl-text">☀️ PEAK SUN HOURS — stay in shade! Explore, eat & rest 👇</div>
+        <div class="tl-tip">⚠️ 11:30 AM – 2:30 PM is the strongest UV. Avoid direct beach/water to prevent tanning & sunburn. Use this time for shaded activities below!</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">11:45 AM</div><div class="tl-text">🚶 Walk to Railay East + Explore the viewpoint trail (shaded jungle!)</div>
+        <div class="tl-tip">💡 Railay East has the Viewpoint & Lagoon trail. 15-min steep muddy climb with ropes – adventurous but rewarding! Mostly shaded by jungle canopy.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">12:30 – 01:30 PM</div><div class="tl-text">🍝 Lunch at Railay East (shaded restaurants — perfect for noon!)</div>
+        <div class="restaurant">🍴 <a href="https://maps.google.com/?q=Flame+Tree+Restaurant+Railay" target="_blank">Flame Tree Restaurant</a> – great Thai food with cliff views (~150-300 THB/dish)</div>
+        <div class="restaurant">🍴 <a href="https://maps.google.com/?q=Mangrove+Restaurant+Railay" target="_blank">Mangrove Restaurant</a> – right on the beach, seafood & Thai curries</div>
+        <div class="tl-tip">💡 Eat at Railay East – cheaper than West side! Try Pad Thai + fresh coconut water. Relax in shade until 2:30 PM!</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">02:30 – 03:30 PM</div><div class="tl-text">🏊 Final swim at Railay West / rock climbing area (☀️ safe again!)</div>
+        <div class="tl-tip">💡 Railay is world-famous for rock climbing! Watching climbers on Tonsai Wall is amazing. Beginner courses available (~1500-2000 THB).</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">03:30 PM</div><div class="tl-text">🚤 Return longtail boat to Ao Nang (~15 min, ~100-150 THB/person)</div>
+        <div class="tl-tip">💡 Boats leave when full (4-8 people) or charter one (~600-800 THB whole boat). Last boats around 5-6 PM – don’t miss them!</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">04:30 PM</div><div class="tl-text">🏊 Relax at hotel pool / freshen up</div></div>
+      <div class="tl-item"><div class="tl-time">06:30 PM</div><div class="tl-text">🍽️ Dinner – pick one!</div>
+        <div class="restaurant">🍴 <a href="https://maps.google.com/?q=Jungle+Kitchen+Krabi" target="_blank">Jungle Kitchen</a> – hidden jungle setting, amazing Thai food (top rated!)</div>
+        <div class="restaurant">🍴 <a href="https://maps.google.com/?q=Krua+Thara+Seafood+Ao+Nang" target="_blank">Krua Thara</a> – local seafood by the water, great value</div>
+        <div class="restaurant">🍴 <a href="https://maps.google.com/?q=Laughing+Gecko+Krabi" target="_blank">Laughing Gecko</a> – cozy garden restaurant, Thai & Western</div>
+        <div class="restaurant">🍜 <a href="https://maps.google.com/?q=Wang+Sai+Seafood+Ao+Nang" target="_blank">Wang Sai Seafood</a> – riverside dining, romantic vibe</div>
+        <div class="tl-tip">💡 Jungle Kitchen is a MUST – book ahead or go early (no reservations). Hidden in the hills behind Ao Nang. Worth the tuk-tuk ride!</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">08:30 PM</div><div class="tl-text">🍦 Night Market / Dessert stroll along Ao Nang</div>
+        <div class="tl-tip">💡 Try Mango Sticky Rice (~60-80 THB), Coconut Ice Cream, Thai Pancakes (Roti) from street vendors. Amazing!</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">09:00 PM</div><div class="tl-text">🍹 Chill at a bar or hotel pool</div>
+        <div class="restaurant">🍹 <a href="https://maps.google.com/?q=Boogie+Bar+Ao+Nang" target="_blank">Boogie Bar</a> – reggae vibes, live music, chill atmosphere</div>
+        <div class="restaurant">🍹 <a href="https://maps.google.com/?q=Last+Fisherman+Bar+Ao+Nang" target="_blank">Last Fisherman Bar</a> – iconic cliffside bar at the end of Ao Nang beach, stunning sea views</div>
+        <div class="restaurant">🍹 <a href="https://maps.google.com/?q=Full+Moon+Bar+Ao+Nang" target="_blank">Full Moon Bar</a> – rooftop vibes, great cocktails & shisha</div>
+        <div class="restaurant">🍹 <a href="https://maps.google.com/?q=Alone+Bar+Ao+Nang+Krabi" target="_blank">Alone Bar</a> – beachfront, fire shows some nights, relaxed music</div>
+        <div class="restaurant">🍹 <a href="https://maps.google.com/?q=Center+Point+Bar+Ao+Nang" target="_blank">Center Point Bar</a> – live bands, pool table, popular with travelers</div>
+        <div class="tl-tip">💡 Most bars along Ao Nang strip have happy hour until 9-10 PM. Cocktails ~150-250 THB, beer ~80-120 THB. Early night recommended – tomorrow is the 4 Island Tour! Wake-up at 7 AM.</div>
+      </div>
+      <div class="tl-item buffer"><div class="tl-time">10:00 PM</div><div class="tl-text">😴 Bedtime – early night!</div>
+        <div class="tl-tip">💡 Sleep by 10 PM → Wake 7 AM = ~9 hrs. You need energy for the 4 Island Tour tomorrow – full day on the water!</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DAY 5 -->
+<div class="section" id="day3">
+  <div class="day-section">
+    <div class="day-header">
+      <div class="day-num">03</div>
+      <div class="day-info">
+        <div class="day-date">Day 3 · 25 May 2026 · Monday</div>
+        <div class="day-sub">4 Island Tour | Stay: Centara Anda Dhevi</div>
+      </div>
+    </div>
+    <img class="day-photo" src="https://images.unsplash.com/photo-1537956965359-7573183d1f57?w=800&q=80" alt="4 Islands Krabi">
+    <div class="day-focus">
+      <span class="tag">🏝️ 4 Islands Tour</span>
+      <span class="tag">🤿 Snorkeling</span>
+      <span class="tag">🏖️ Koh Poda & Tup Island</span>
+      <span class="tag">🛍️ Souvenir Shopping</span>
+      <span class="tag">📍 Krabi</span>
+    </div>
+    <div class="timeline">
+      <div class="day-carry">
+        <div class="carry-section">👙 <strong>What to Wear:</strong> Swimsuit/bikini UNDER clothes (you'll be on a boat all day). Rash guard/UV top recommended for snorkeling (prevents sunburn + jellyfish). Light cover-up for the boat.</div>
+        <div class="carry-section">🎒 <strong>What to Carry:</strong> Waterproof phone pouch (MUST!), sunscreen SPF50+ (reapply every 90 min!), sunglasses with strap, hat, reef shoes, towel, dry bag for electronics, cash (~500 THB), water bottle, motion sickness pills (take 30 min before boat).</div>
+        <div class="carry-section">⚠️ <strong>Tan Alert:</strong> You'll be on water all day — UV reflects off the sea! Wear rash guard + reapply sunscreen constantly. Sit under boat shade during 11:30 AM – 2:30 PM.</div>
+      </div>
+      <div class="tl-item buffer"><div class="tl-time">07:00 – 09:30 AM</div><div class="tl-text">Wake up + Breakfast + Get ready</div>
+        <div class="tl-tip">💡 Wear swimsuit under clothes. Pack: sunscreen, towel, waterproof phone pouch, water bottle, cash for snorkeling gear rental.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">09:30 AM</div><div class="tl-text">🚤 4 Island Tour departs from Ao Nang</div>
+        <div class="tl-tip">💡 Full-day longtail boat tour (~6 hours). Usually includes lunch. Confirm with operator.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">10:00 AM</div><div class="tl-text">🏝️ <strong>Stop 1: Koh Poda</strong> – pristine white sand beach with stunning views</div>
+        <div class="tl-tip">💡 Crystal clear water, perfect for swimming. Great photo spot with Koh Poda sign. ~45 min stop.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">11:00 AM</div><div class="tl-text">🏝️ <strong>Stop 2: Tup Island (Chicken Island)</strong> – the famous sandbar!</div>
+        <div class="tl-tip">💡 At low tide, a sandbar connects Tup Island to Chicken Island – you can WALK between islands! Check tide times. Chicken Island is named for its chicken-shaped rock. Amazing snorkeling here!</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">12:00 PM</div><div class="tl-text">🤿 <strong>Snorkeling stop</strong> – coral reefs & tropical fish</div>
+        <div class="tl-tip">💡 Rent snorkeling gear if not provided (~100-150 THB). Look for clownfish (Nemo!), parrotfish, and sea urchins. Don't touch coral!</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">12:30 PM</div><div class="tl-text">🍽️ Lunch on the boat or beach (usually included)</div></div>
+      <div class="tl-item"><div class="tl-time">01:30 PM</div><div class="tl-text">🏖️ <strong>Stop 3: Phra Nang Cave Beach</strong> – the crown jewel!</div>
+        <div class="tl-tip">💡 Stunning limestone cliffs rising from turquoise water. Visit the Princess Cave (fertility shrine) at the far end. One of the world's most beautiful beaches! ~1 hour stop.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">03:00 – 03:30 PM</div><div class="tl-text">🚤 Return to Ao Nang pier</div></div>
+      <div class="tl-item"><div class="tl-time">04:00 PM</div><div class="tl-text">🚿 Back to hotel – shower & rest</div></div>
+      <div class="tl-item"><div class="tl-time">04:30 PM</div><div class="tl-text">💆 Evening spa session – you deserve it after a day at sea!</div>
+        <div class="tl-tip">💡 Try a Thai herbal compress massage (~400-600 THB). Great for sore muscles after swimming & snorkeling all day.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">06:30 PM</div><div class="tl-text">🌅 Ao Nang sunset from the beach</div>
+        <div class="tl-tip">💡 Last evening in Krabi! Soak it in. Great photo opportunity from the beach promenade.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">07:00 PM</div><div class="tl-text">🍽️ Farewell Krabi Dinner – make it special!</div>
+        <div class="restaurant">🥩 <a href="https://maps.google.com/?q=Carnivore+Steakhouse+Ao+Nang" target="_blank">Carnivore Steakhouse</a> – great steaks & BBQ</div>
+        <div class="restaurant">🦐 <a href="https://maps.google.com/?q=The+Grotto+Krabi" target="_blank">The Grotto</a> – fine dining by the cliffs</div>
+        <div class="restaurant">🍴 <a href="https://maps.google.com/?q=Lae+Lay+Grill+Krabi" target="_blank">Lae Lay Grill</a> – hilltop restaurant with panoramic sea views</div>
+        <div class="tl-tip">💡 Lae Lay Grill has STUNNING sunset views – book a table for 6:30 PM to catch the golden hour. Slightly pricey but worth every Baht!</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">09:00 PM</div><div class="tl-text">🛍️ Last-minute Ao Nang shopping – souvenirs, Thai snacks, elephant pants!</div>
+        <div class="tl-tip">💡 Bargain hard at souvenir shops! Start at 50% of asking price. Good buys: coconut oil, Thai spices, dried mango, fisherman pants.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">10:00 PM</div><div class="tl-text">🧳 Pack for Phi Phi! (Early checkout tomorrow)</div>
+        <div class="tl-tip">⚠️ Ferry pickup is ~7:45 AM tomorrow! Pack tonight. Keep ferry voucher accessible. Light bag recommended for Phi Phi (1 night only).</div>
+      </div>
+      <div class="tl-item buffer"><div class="tl-time">10:30 PM</div><div class="tl-text">😴 Bedtime – early wake-up tomorrow!</div>
+        <div class="tl-tip">💡 Sleep by 10:30 PM → Wake 6 AM = ~7.5 hrs. Last night in Krabi! Tomorrow you're off to Phi Phi Island 🏝️</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DAY 6 -->
+<div class="section" id="day4">
+  <div class="day-section">
+    <div class="day-header">
+      <div class="day-num">04</div>
+      <div class="day-info">
+        <div class="day-date">Day 4 · 26 May 2026 · Tuesday</div>
+        <div class="day-sub">Krabi → Phi Phi Island | Stay: Phi Phi The Beach Resort</div>
+      </div>
+    </div>
+    <img class="day-photo" src="https://images.unsplash.com/photo-1548918901-9b31223e5e6d?w=800&q=80" alt="Phi Phi Island">
+    <div class="day-focus">
+      <span class="tag">⛴️ Ferry Krabi → Phi Phi</span>
+      <span class="tag">🏔️ Phi Phi Viewpoint Hike</span>
+      <span class="tag">🔥 Fire Show at Loh Dalum</span>
+      <span class="tag">📍 Phi Phi Island</span>
+    </div>
+    <div class="timeline">
+      <div class="day-carry">
+        <div class="carry-section">👕 <strong>What to Wear:</strong> Comfortable travel clothes for ferry (light T-shirt + shorts). Swimsuit UNDER for afternoon beach. Sneakers/sports sandals for Viewpoint hike. Evening: casual clothes + flip-flops for beach party.</div>
+        <div class="carry-section">🎒 <strong>What to Carry:</strong> Ferry voucher (printed + phone!), sunscreen, sunglasses, hat, light jacket (windy on ferry!), motion sickness pills, water bottle, power bank, waterproof phone pouch, small towel, cash (~1000 THB), snorkeling gear or rent there.</div>
+        <div class="carry-section">⚠️ <strong>Tan Alert:</strong> Beach time is 1:30–4 PM — mostly post-peak. Apply sunscreen. Sit under umbrella/shade when resting. The Viewpoint hike at 4:30 PM is shaded by trees.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">06:00 AM</div><div class="tl-text">⏰ Wake up early!</div>
+        <div class="tl-tip">⚠️ Pickup is at 7:45 AM – no room for delays! Pack everything the night before.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">06:15 – 07:00 AM</div><div class="tl-text">🍳 Quick breakfast at hotel + freshen up</div>
+        <div class="tl-tip">💡 Breakfast opens at 6:30 AM. Grab something quick – you can eat more on the ferry.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">07:00 – 07:30 AM</div><div class="tl-text">🧳 Checkout at reception + leave bags in lobby</div>
+        <div class="tl-tip">💡 Early checkout – settle any minibar/extras. Double-check room for chargers, passports, etc.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">07:45 AM</div><div class="tl-text">🚐 Shared transfer pickup from hotel lobby</div>
+        <div class="tl-tip">⚠️ Be in the lobby by 7:30 AM! Shared transfer may have other hotel pickups. Keep ferry voucher ready to show driver.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">08:30 AM</div><div class="tl-text">🚏 Arrive at Nopparat-Thara Pier – wait for boarding</div>
+        <div class="tl-tip">💡 Pay cleaning fee THB 20/person at the pier. Use the washroom here – ferry toilets are basic.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">09:30 AM</div><div class="tl-text">⛴️ Ferry departs → Phi Phi Island (~1.5–2 hrs)</div>
+        <div class="tl-tip">💡 Sit on upper deck for amazing views! Apply sunscreen. Keep a light jacket – it can get windy. Take motion sickness pills if needed.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">~11:30 AM</div><div class="tl-text">🏝️ Arrive Tonsai Pier, Phi Phi Island</div>
+        <div class="tl-tip">💡 Look for Phi Phi The Beach Resort staff holding a sign at the pier. They'll take you on a FREE long-tail boat (~10 min ride) to the resort.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">12:00 PM</div><div class="tl-text">🏨 Arrive at resort – check in & settle into rooms</div></div>
+      <div class="tl-item"><div class="tl-time">12:30 PM</div><div class="tl-text">🍽️ Lunch at the resort or nearby beach restaurant</div>
+        <div class="tl-tip">💡 You'll be hungry after the morning! The resort restaurant or beach-front cafes are your best bet.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">01:30 – 02:30 PM</div><div class="tl-text">🏖️ Beach time — stay under shade/umbrella until 2:30 PM!</div>
+        <div class="tl-tip">⚠️ 1:30–2:30 PM is still peak UV! Sit under shade or umbrella. Snorkeling is fine (water protects skin somewhat). Apply sunscreen. After 2:30 PM you can enjoy the sun freely.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">02:30 – 04:00 PM</div><div class="tl-text">🏊 Swim + Snorkeling at the resort beach (☀️ safe after 2:30!)</div>
+        <div class="tl-tip">💡 The resort has its own beach! Great snorkeling right off shore. Rent gear at the resort or nearby shops (~150 THB).</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">04:00 PM</div><div class="tl-text">🚿 Freshen up at the room</div></div>
+      <div class="tl-item"><div class="tl-time">04:30 PM</div><div class="tl-text">🚶 Walk to Phi Phi Viewpoint (30-40 min hike)</div>
+        <div class="tl-tip">💡 The iconic viewpoint overlooking both bays! Entry ~30 THB. Steep stairs but 100% worth it. Bring water. Best light for photos around 5 PM.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">06:00 PM</div><div class="tl-text">🌅 Sunset from Phi Phi Viewpoint or the beach</div></div>
+      <div class="tl-item"><div class="tl-time">07:00 PM</div><div class="tl-text">🍽️ Dinner at Tonsai Village</div>
+        <div class="restaurant">🍴 <a href="https://maps.google.com/?q=Unni's+Restaurant+Phi+Phi" target="_blank">Unni's Restaurant</a> – popular Thai & international, great vibe</div>
+        <div class="restaurant">🦐 <a href="https://maps.google.com/?q=Pum+Thai+Restaurant+Phi+Phi" target="_blank">Pum Thai Restaurant</a> – authentic Thai cooking class too!</div>
+        <div class="restaurant">🍕 <a href="https://maps.google.com/?q=Local+Food+Market+Phi+Phi" target="_blank">Tonsai Food Market</a> – cheap local eats, pad thai & curries</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">09:00 PM</div><div class="tl-text">🔥 Fire Show on the beach – DON'T MISS!</div>
+        <div class="tl-tip">💡 Multiple bars on the beach do fire shows nightly (~9:30-11 PM). Slinky Bar and Ibiza Bar are the most popular. Free to watch! Grab a bucket cocktail and enjoy.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">10:30 PM</div><div class="tl-text">🍹 Beach party or chill at a bar</div>
+        <div class="tl-tip">💡 Phi Phi nightlife is legendary! But remember – ferry to Phuket is at 2:30 PM tomorrow, so you have the morning. Don't go too crazy 😄</div>
+      </div>
+      <div class="tl-item buffer"><div class="tl-time">11:30 PM</div><div class="tl-text">😴 Bedtime – enjoy the island sounds!</div>
+        <div class="tl-tip">💡 Sleep by 11:30 PM → Wake 5:30 AM = ~6 hrs. Short night but tomorrow's Maya Bay sunrise tour is WORTH IT! 🌅</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DAY 7 -->
+<div class="section" id="day5">
+  <div class="day-section">
+    <div class="day-header">
+      <div class="day-num">05</div>
+      <div class="day-info">
+        <div class="day-date">Day 5 · 27 May 2026 · Wednesday</div>
+        <div class="day-sub">Phi Phi → Phuket | Stay: Burasari Phuket</div>
+      </div>
+    </div>
+    <img class="day-photo" src="https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?w=800&q=80" alt="Maya Bay Phi Phi">
+    <div class="day-focus">
+      <span class="tag">🏝️ Maya Bay</span>
+      <span class="tag">💎 Pileh Lagoon</span>
+      <span class="tag">🐒 Monkey Beach</span>
+      <span class="tag">🎋 Bamboo Island</span>
+      <span class="tag">⛴️ Ferry → Phuket</span>
+      <span class="tag">🎉 Bangla Road</span>
+      <span class="tag">📍 Phi Phi → Phuket</span>
+    </div>
+    <div class="timeline">
+      <div class="day-carry">
+        <div class="carry-section">👙 <strong>What to Wear:</strong> Swimsuit/bikini ON (you're on a boat from 6:45 AM!). Rash guard/UV top for snorkeling. Bring a dry change of clothes in waterproof bag for the afternoon ferry + Phuket evening. Evening: nice casual for Bangla Road.</div>
+        <div class="carry-section">🎒 <strong>What to Carry:</strong> Waterproof phone pouch, dry bag (for dry clothes + electronics), sunscreen SPF50+, reef shoes, towel, cash (~1500 THB), snorkeling gear, GoPro, water bottle, ferry voucher. Keep a separate bag with evening clothes for Phuket.</div>
+        <div class="carry-section">⚠️ <strong>Tan Alert:</strong> Morning boat tour (6:45–11:30 AM) — the early hours are fine but UV increases after 10 AM on water. Wear rash guard + hat. You'll be indoors/travelling after noon so minimal risk.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">05:30 AM</div><div class="tl-text">⏰ Wake up early – it's worth it!</div>
+        <div class="tl-tip">💡 Early start = fewer crowds at Maya Bay. Wear swimsuit, pack sunscreen, waterproof pouch, towel, cash.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">06:00 – 06:30 AM</div><div class="tl-text">🍳 Quick breakfast at resort</div></div>
+      <div class="tl-item"><div class="tl-time">06:45 AM</div><div class="tl-text">🚤 Board longtail/speedboat for Phi Phi Island Tour</div>
+        <div class="tl-tip">💡 Half-day tour (~4-5 hrs). Book the early morning slot for the best experience. Can book through resort or Klook.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">07:15 AM</div><div class="tl-text">🏖️ <strong>Stop 1: Maya Bay</strong> – THE iconic beach!</div>
+        <div class="tl-tip">💡 Featured in Leonardo DiCaprio's "The Beach" (2000). Limited to ~300 visitors at a time. Entry ~400 THB. NO swimming allowed (conservation) but you can walk the beach & take photos. The towering cliffs are breathtaking! Early morning = magical light & fewer people.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">08:00 AM</div><div class="tl-text">💎 <strong>Stop 2: Pileh Lagoon</strong> – crystal emerald water!</div>
+        <div class="tl-tip">💡 A hidden lagoon enclosed by limestone cliffs. The water is impossibly clear & turquoise. Swimming allowed here! One of the most beautiful spots in all of Thailand. Perfect for photos – the water glows green!</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">08:45 AM</div><div class="tl-text">🤿 <strong>Snorkeling stop</strong> near Phi Phi Leh</div>
+        <div class="tl-tip">💡 Amazing coral reefs & tropical fish. Look for blacktip reef sharks (harmless!), sea turtles, and Nemo clownfish. Best visibility in the morning!</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">09:30 AM</div><div class="tl-text">🗿 <strong>Stop 3: Viking Cave</strong> (view from boat)</div>
+        <div class="tl-tip">💡 Can't enter – but impressive from the water! Ancient cave paintings of boats on the walls. Locals harvest bird's nests here (for bird's nest soup – very expensive delicacy!).</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">10:00 AM</div><div class="tl-text">🐒 <strong>Stop 4: Monkey Beach</strong> – cheeky residents!</div>
+        <div class="tl-tip">⚠️ Keep belongings secure – monkeys WILL grab phones, sunglasses, food! Don't feed them. Watch from the boat or wade in carefully. Fun to watch but keep your distance. ~20 min stop.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">10:45 AM</div><div class="tl-text">🏝️ <strong>Stop 5: Bamboo Island</strong> (if included)</div>
+        <div class="tl-tip">💡 Some tours include this pristine white sand island. Perfect for a final swim. Entry ~400 THB (sometimes included in tour).</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">11:30 AM</div><div class="tl-text">🚤 Return to resort</div></div>
+      <div class="tl-item"><div class="tl-time">12:00 PM</div><div class="tl-text">🚿 Shower + pack bags + checkout</div>
+        <div class="tl-tip">💡 Checkout and leave bags with reception. You have time for lunch before the ferry.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">12:30 PM</div><div class="tl-text">🍽️ Lunch at Tonsai Village</div>
+        <div class="restaurant">🍴 <a href="https://maps.google.com/?q=Cosmic+Phi+Phi" target="_blank">Cosmic</a> – great pizzas & Thai food</div>
+        <div class="restaurant">🍜 <a href="https://maps.google.com/?q=Garlic+1991+Phi+Phi" target="_blank">Garlic 1991</a> – popular Thai restaurant</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">01:30 PM</div><div class="tl-text">🚶 Walk to Tonsai Pier (take resort's free boat back first)</div></div>
+      <div class="tl-item"><div class="tl-time">02:00 PM</div><div class="tl-text">⚠️ Check in at Andaman Wave Master Counter (30 min before!)</div></div>
+      <div class="tl-item"><div class="tl-time">02:30 PM</div><div class="tl-text">⛴️ Ferry Tonsai Pier → Rassada Pier, Phuket</div></div>
+      <div class="tl-item"><div class="tl-time">~04:30 PM</div><div class="tl-text">🚢 Arrive Rassada Pier, Phuket</div></div>
+      <div class="tl-item"><div class="tl-time">04:30 – 05:15 PM</div><div class="tl-text">🚗 Transfer to Burasari Phuket, Patong (~45 min)</div>
+        <div class="tl-tip">💡 Pre-book a taxi or use Grab app. Rassada Pier → Patong is about 40-50 min. Cost ~600-800 THB by taxi.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">05:30 PM</div><div class="tl-text">🏨 Check-in at Burasari Phuket</div>
+        <div class="tl-tip">💡 Located right near Bangla Road & Patong Beach – perfect location! Freshen up, rest your legs after a big day.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">06:30 PM</div><div class="tl-text">🏖️ Quick walk to Patong Beach – catch the sunset!</div>
+        <div class="tl-tip">💡 Patong Beach is just 5 min walk from Burasari. Beautiful wide beach – great first impression of Phuket!</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">07:30 PM</div><div class="tl-text">🍽️ Welcome-to-Phuket Dinner!</div>
+        <div class="restaurant">🍴 <a href="https://maps.google.com/?q=No.6+Restaurant+Patong+Phuket" target="_blank">No.6 Restaurant</a> – legendary Patong street food, huge portions, super cheap!</div>
+        <div class="restaurant">🦐 <a href="https://maps.google.com/?q=Briley+Seafood+Patong" target="_blank">Briley Seafood</a> – fresh seafood, local favorite</div>
+        <div class="restaurant">🍴 <a href="https://maps.google.com/?q=Kebab+Turki+Patong+Phuket" target="_blank">Ali Baba Restaurant</a> – if you're craving something familiar (halal options)</div>
+        <div class="tl-tip">💡 No.6 Restaurant is a MUST – one of the most famous street food spots in Patong. Always packed! Try their Pad Thai, Green Curry & Tom Yum. Insanely cheap for the quality.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">09:00 PM</div><div class="tl-text">🎉 Bangla Road – Phuket's LEGENDARY walking street!</div>
+        <div class="tl-tip">💡 The road closes to traffic after 6 PM and transforms into a neon-lit party strip. Street performers, live music, bars, clubs everywhere. Just walk through and soak it in – no pressure to enter anywhere!</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">09:30 PM</div><div class="tl-text">🍹 Grab drinks at a rooftop bar</div>
+        <div class="restaurant">🍹 <a href="https://maps.google.com/?q=Illuzion+Phuket" target="_blank">Illuzion Club</a> – massive nightclub, big DJ nights</div>
+        <div class="restaurant">🍹 <a href="https://maps.google.com/?q=Seduction+Beach+Club+Patong" target="_blank">Seduction Beach Club</a> – pool party vibes</div>
+        <div class="restaurant">🍹 <a href="https://maps.google.com/?q=Molly+Malone's+Patong" target="_blank">Molly Malone's</a> – chill Irish pub, live music, good for a relaxed drink</div>
+        <div class="tl-tip">💡 Bangla Road bars often have free entry but drink prices vary. Buckets (cocktail buckets) are the iconic Bangla drink ~200-300 THB. Stay safe – watch your belongings!</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">10:30 PM</div><div class="tl-text">💆 Late night Thai massage on Bangla Road</div>
+        <div class="tl-tip">💡 Tons of massage shops open late around Bangla. ~300-400 THB for a foot massage – perfect way to end a long travel day!</div>
+      </div>
+      <div class="tl-item buffer"><div class="tl-time">11:30 PM</div><div class="tl-text">😴 Bedtime – first night in Phuket!</div>
+        <div class="tl-tip">💡 Sleep by 11:30 PM → Wake 7:30 AM = ~8 hrs. Big sightseeing day tomorrow – Big Buddha, Wat Chalong, Old Town & sunset at Promthep Cape!</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DAY 8 -->
+<div class="section" id="day6">
+  <div class="day-section">
+    <div class="day-header">
+      <div class="day-num">06</div>
+      <div class="day-info">
+        <div class="day-date">Day 6 · 28 May 2026 · Thursday</div>
+        <div class="day-sub">Phuket Exploration | Stay: Burasari Phuket</div>
+      </div>
+    </div>
+    <img class="day-photo" src="https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?w=800&q=80" alt="Big Buddha Phuket">
+    <div class="day-focus">
+      <span class="tag">🛕 Big Buddha</span>
+      <span class="tag">🛕 Wat Chalong</span>
+      <span class="tag">🏘️ Old Phuket Town</span>
+      <span class="tag">🏖️ Kata Beach</span>
+      <span class="tag">🌅 Promthep Cape Sunset</span>
+      <span class="tag">📍 Phuket</span>
+    </div>
+    <div class="timeline">
+      <div class="day-carry">
+        <div class="carry-section">👕 <strong>What to Wear:</strong> <u>Temple dress code!</u> Cover shoulders & knees (both men & women). Men: T-shirt + long pants or knee-length shorts. Women: maxi dress or top + long skirt/pants. Carry a sarong/scarf to cover up. Change to swimsuit at Kata Beach later. Evening: nice casual for farewell dinner.</div>
+        <div class="carry-section">🎒 <strong>What to Carry:</strong> Sunscreen, sunglasses, hat, water bottle, camera, comfy walking shoes (lots of walking at temples + Old Town), power bank, cash (~1500 THB), sarong/scarf (temple cover-up + beach), swimsuit in bag (for Kata Beach stop).</div>
+        <div class="carry-section">⚠️ <strong>Tan Alert:</strong> Morning is temple visits (indoors/shaded). Kata Beach visit is scheduled for late afternoon (3:30 PM+) — after peak sun! Promthep Cape sunset is evening. Minimal sun exposure today.</div>
+      </div>
+      <div class="tl-item buffer"><div class="tl-time">07:30 – 09:30 AM</div><div class="tl-text">Wake up + Breakfast + Get ready</div>
+        <div class="tl-tip">💡 Dress modestly today – you're visiting temples! Cover shoulders & knees. Carry a light scarf/sarong just in case. Wear comfy walking shoes.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">09:30 AM</div><div class="tl-text">🚕 Grab taxi/Grab for the day (~1,500-2,000 THB)</div>
+        <div class="tl-tip">💡 Negotiate a full-day rate with a taxi driver – cheaper than multiple Grab rides. Ask hotel reception to help arrange. Route: Big Buddha → Wat Chalong → Old Town → Kata Beach → Promthep Cape.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">10:00 AM</div><div class="tl-text">� <strong>Stop 1: Big Buddha (Phra Phutthamingmongkol Akenakkiri)</strong></div>
+        <div class="tl-tip">💡 45-meter tall white marble Maravija Buddha sitting atop Nakkerd Hills (400m above sea level). Breathtaking 360° panoramic views of Phuket – you can see Kata, Karon, Chalong Bay & more!<br>
+        💡 <strong>Free entry</strong> (donations welcome). ~30-45 min visit.<br>
+        💡 Dress code strictly enforced – shoulders & knees must be covered. Free sarongs available at entrance if needed.<br>
+        💡 Best photos: stand at the viewing platform behind the statue for the bay view!<br>
+        📍 <a href="https://maps.google.com/?q=Big+Buddha+Phuket" target="_blank" style="color:var(--accent);text-decoration:none;">Open in Maps</a></div>
+      </div>
+      <div class="tl-item"><div class="tl-time">11:00 AM</div><div class="tl-text">🛕 <strong>Stop 2: Wat Chalong (Chalong Temple)</strong></div>
+        <div class="tl-tip">💡 The most important and visited temple in Phuket. Beautiful Thai architecture with ornate pagodas and golden stupas.<br>
+        💡 <strong>Free entry</strong>. ~30-45 min visit.<br>
+        💡 The Grand Pagoda has a fragment of Lord Buddha's bone! Climb to the top floor for views.<br>
+        💡 Remove shoes before entering any building. Don't point feet at Buddha statues.<br>
+        💡 ~15 min drive from Big Buddha.<br>
+        📍 <a href="https://maps.google.com/?q=Wat+Chalong+Phuket" target="_blank" style="color:var(--accent);text-decoration:none;">Open in Maps</a></div>
+      </div>
+      <div class="tl-item"><div class="tl-time">12:00 PM</div><div class="tl-text">🏘️ <strong>Stop 3: Old Phuket Town</strong></div>
+        <div class="tl-tip">💡 Charming Sino-Portuguese colonial architecture from the tin mining era. Colorful shophouses, street art, indie cafes & galleries.<br>
+        💡 <strong>Must-see streets:</strong><br>
+        🎨 <strong>Soi Romanee</strong> – THE most photogenic street! Pastel-colored buildings, Instagram paradise.<br>
+        🏛️ <strong>Thalang Road</strong> – the main heritage street with local shops & museums.<br>
+        �️ <strong>Phang Nga Road</strong> – beautiful murals & street art on the walls.<br>
+        💡 ~30 min drive from Wat Chalong. Plan ~1-1.5 hrs to explore & take photos.<br>
+        📍 <a href="https://maps.google.com/?q=Old+Phuket+Town" target="_blank" style="color:var(--accent);text-decoration:none;">Open in Maps</a></div>
+      </div>
+      <div class="tl-item"><div class="tl-time">01:30 PM</div><div class="tl-text">🍽️ Lunch in Old Town – tons of great options!</div>
+        <div class="restaurant">🍴 <a href="https://maps.google.com/?q=Tu+Kab+Khao+Phuket" target="_blank">Tu Kab Khao</a> – beautiful heritage house, amazing Southern Thai food (top rated!)</div>
+        <div class="restaurant">☕ <a href="https://maps.google.com/?q=One+Chun+Cafe+Phuket" target="_blank">One Chun</a> – local favorite, authentic Phuketian cuisine</div>
+        <div class="restaurant">🍜 <a href="https://maps.google.com/?q=Raya+Restaurant+Phuket" target="_blank">Raya Restaurant</a> – classic old-town restaurant in a gorgeous mansion</div>
+        <div class="tl-tip">💡 Tu Kab Khao is consistently rated one of the best restaurants in Phuket. Try the crab curry & Phuket-style Hokkien noodles!</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">03:00 PM</div><div class="tl-text">🚗 Drive to Kata Beach (~30 min from Old Town)</div></div>
+      <div class="tl-item"><div class="tl-time">03:30 – 05:30 PM</div><div class="tl-text">🏖️ Kata Beach – relax, swim & soak up the sun</div>
+        <div class="tl-tip">💡 One of Phuket's prettiest beaches! Less crowded than Patong, softer sand, great for swimming. Rent a sunbed (~200 THB) and chill.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">05:45 PM</div><div class="tl-text">🚗 Drive to Promthep Cape (~15 min from Kata)</div>
+        <div class="tl-tip">⚠️ Arrive by 6 PM to get a good viewing spot! It gets crowded at sunset.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">06:00 – 06:45 PM</div><div class="tl-text">🌅 Promthep Cape Sunset – Phuket's #1 viewpoint!</div>
+        <div class="tl-tip">💡 The most famous sunset spot in all of Phuket! Dramatic cliffs overlooking the Andaman Sea. Absolutely breathtaking. There's also a small lighthouse you can walk to.<br>
+        💡 <strong>Free entry</strong>. Bring your camera – this is THE sunset photo of the trip!<br>
+        📍 <a href="https://maps.google.com/?q=Promthep+Cape+Phuket" target="_blank" style="color:var(--accent);text-decoration:none;">Open in Maps</a></div>
+      </div>
+      <div class="tl-item"><div class="tl-time">07:00 PM</div><div class="tl-text">🚗 Drive back to Patong (~40 min)</div></div>
+      <div class="tl-item"><div class="tl-time">07:45 PM</div><div class="tl-text">🚿 Quick freshen up at hotel</div></div>
+      <div class="tl-item"><div class="tl-time">08:15 PM</div><div class="tl-text">🍽️ Last big dinner in Thailand – make it count!</div>
+        <div class="restaurant">🦐 <a href="https://maps.google.com/?q=Savoey+Seafood+Patong" target="_blank">Savoey Seafood</a> – famous seafood restaurant, huge portions</div>
+        <div class="restaurant">🍴 <a href="https://maps.google.com/?q=Baan+Rim+Pa+Patong" target="_blank">Baan Rim Pa</a> – cliffside fine dining, Royal Thai cuisine, stunning views</div>
+        <div class="restaurant">🍴 <a href="https://maps.google.com/?q=The+9th+Floor+Patong" target="_blank">The 9th Floor</a> – rooftop restaurant & bar, panoramic night views</div>
+        <div class="tl-tip">💡 Savoey is great for a seafood feast – try their signature crab in yellow curry! Baan Rim Pa is more upscale if you want a special farewell dinner.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">09:30 PM</div><div class="tl-text">🚶 Final stroll along Patong Beach promenade</div>
+        <div class="tl-tip">💡 Beautiful at night with the lights. Take a moment to reflect on an incredible week! 🌊</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">10:00 PM</div><div class="tl-text">� One last drink? Or head back to hotel</div>
+        <div class="restaurant">🍹 <a href="https://maps.google.com/?q=KEE+Sky+Lounge+Patong" target="_blank">KEE Sky Lounge</a> – rooftop cocktails with city & sea views</div>
+        <div class="tl-tip">💡 Perfect way to say goodbye to Thailand – rooftop cocktails overlooking Patong!</div>
+      </div>
+      <div class="tl-item buffer"><div class="tl-time">10:30 PM</div><div class="tl-text">😴 Bedtime – last night in Thailand!</div>
+        <div class="tl-tip">💡 Sleep by 10:30 PM → Wake 8 AM = ~9.5 hrs. Enjoy your last full sleep in Thailand. Tomorrow is a relaxed day before the evening flight home ✈️</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DAY 9 -->
+<div class="section" id="day7">
+  <div class="day-section">
+    <div class="day-header">
+      <div class="day-num">07</div>
+      <div class="day-info">
+        <div class="day-date">Day 7 · 29 May 2026 · Friday</div>
+        <div class="day-sub">Relax + Departure ✈️</div>
+      </div>
+    </div>
+    <img class="day-photo" src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=800&q=80" alt="Phuket Beach">
+    <div class="day-focus">
+      <span class="tag">🏊 Morning Beach Swim</span>
+      <span class="tag">🛍️ Jungceylon Mall</span>
+      <span class="tag">💆 Farewell Thai Massage</span>
+      <span class="tag">✈️ HKT → AUH Departure</span>
+      <span class="tag">📍 Phuket → Home</span>
+    </div>
+    <div class="timeline">
+      <div class="day-carry">
+        <div class="carry-section">👕 <strong>What to Wear:</strong> Comfortable travel clothes (T-shirt + shorts). Swimsuit UNDER for morning beach swim. Change into clean travel outfit after. Wear comfy shoes/sneakers for the flight home.</div>
+        <div class="carry-section">🎒 <strong>What to Carry:</strong> Passport, flight tickets, phone, power bank, charger, earphones, neck pillow, eye mask (for red-eye if applicable), any remaining Thai Baht, snacks for the flight, duty-free shopping list. Keep a small day bag separate from checked luggage.</div>
+      </div>
+      <div class="tl-item buffer"><div class="tl-time">07:30 – 09:00 AM</div><div class="tl-text">Wake up + Breakfast at hotel</div>
+        <div class="tl-tip">💡 Last breakfast in Thailand! Enjoy it. No rush – checkout is before 12:00.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">09:00 AM</div><div class="tl-text">🏊 Morning swim at Burasari pool or Patong Beach</div>
+        <div class="tl-tip">💡 Start the day with a refreshing dip! The hotel pool is lovely in the morning. Or walk 5 min to Patong Beach for a morning swim – it's quieter before 10 AM.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">09:45 AM</div><div class="tl-text">� Shower + pack bags</div>
+        <div class="tl-tip">💡 Pack everything, do a final room check (chargers, passports, under the bed!). Leave bags at reception after checkout.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">10:30 AM</div><div class="tl-text">🧳 Checkout at reception – leave bags at hotel</div>
+        <div class="tl-tip">💡 Most hotels hold bags for free after checkout. Confirm with reception. Keep a day bag with essentials (swimsuit, wallet, phone, sunscreen).</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">10:45 AM</div><div class="tl-text">🛍️ Jungceylon Shopping Mall – Phuket's biggest!</div>
+        <div class="tl-tip">💡 Right in the heart of Patong, walking distance from Burasari. Great for: air-conditioned shopping, Thai souvenirs, Boots pharmacy (last-minute gifts!), NaRaYa bags (famous Thai brand), Jim Thompson silk, snacks for the flight home.<br>
+        📍 <a href="https://maps.google.com/?q=Jungceylon+Patong+Phuket" target="_blank" style="color:var(--accent);text-decoration:none;">Open in Maps</a></div>
+      </div>
+      <div class="tl-item"><div class="tl-time">12:00 PM</div><div class="tl-text">�️ Farewell Lunch – one last Thai feast!</div>
+        <div class="restaurant">🍴 <a href="https://maps.google.com/?q=No.6+Restaurant+Patong+Phuket" target="_blank">No.6 Restaurant</a> – go back for one more round? 😄</div>
+        <div class="restaurant">🍜 <a href="https://maps.google.com/?q=Kaab+Gluay+Patong" target="_blank">Kaab Gluay</a> – authentic Thai, local vibe, near Jungceylon</div>
+        <div class="restaurant">☕ <a href="https://maps.google.com/?q=After+the+Beach+Phuket" target="_blank">After the Beach</a> – trendy brunch spot, great smoothie bowls & coffee</div>
+        <div class="tl-tip">💡 Order all your favorites one last time – Pad Thai, Green Curry, Mango Sticky Rice, Thai Iced Tea! 🥭</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">01:30 PM</div><div class="tl-text">💆 Thai Massage – the grand finale!</div>
+        <div class="tl-tip">💡 Book a 1.5-2 hour spa package. ~500-800 THB for a full body Thai massage + foot massage combo. Perfect way to wind down the trip! Try Let's Relax Spa (in Jungceylon) for a premium experience, or any of the roadside massage shops for great value.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">03:30 PM</div><div class="tl-text">🏖️ Last beach time at Patong!</div>
+        <div class="tl-tip">💡 Final swim in the Andaman Sea! Take some last group photos on the beach. Soak it all in – you'll miss this! 📸🌊</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">04:30 PM</div><div class="tl-text">🍦 Last Thai treats – grab & go!</div>
+        <div class="restaurant">🥭 Mango Sticky Rice from a street vendor (~60-80 THB)</div>
+        <div class="restaurant">🧋 Thai Iced Tea / Thai Iced Coffee (~40 THB)</div>
+        <div class="restaurant">🥥 Fresh coconut from a beach vendor (~50 THB)</div>
+        <div class="tl-tip">💡 Stock up on Thai snacks for the flight home from 7-Eleven: Lay's Nori Seaweed chips, Pocky, dried mango, instant Tom Yum noodles – great gifts too!</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">05:00 PM</div><div class="tl-text">� Quick change at hotel (collect bags from reception)</div></div>
+      <div class="tl-item"><div class="tl-time">05:30 PM</div><div class="tl-text">�🚗 Airport transfer – Grab/taxi (~45 min to HKT)</div>
+        <div class="tl-tip">⚠️ Flight at 20:25 – aim to reach airport by 18:15. Etihad check-in counter closes ~1hr before departure. Book Grab in advance – Patong traffic can be heavy in the evening!</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">06:15 PM</div><div class="tl-text">🛫 Arrive Phuket Airport (Terminal I)</div></div>
+      <div class="tl-item"><div class="tl-time">06:30 PM</div><div class="tl-text">📋 Check-in at Etihad counter + drop bags</div></div>
+      <div class="tl-item"><div class="tl-time">07:00 PM</div><div class="tl-text">🛂 Immigration + Security</div>
+        <div class="tl-tip">💡 VAT refund! If you bought items over 2,000 THB at participating stores and got a VAT refund form, visit the VAT Refund counter BEFORE check-in (need to show items), then claim cash after immigration.</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">07:15 PM</div><div class="tl-text">🛍️ Duty Free shopping – last chance!</div>
+        <div class="tl-tip">💡 Great deals on: Thai silk, Jim Thompson, Thai rum (Mekhong/SangSom), King Power exclusives, Thai snacks gift boxes. Don't forget to use any remaining THB!</div>
+      </div>
+      <div class="tl-item"><div class="tl-time">07:45 PM</div><div class="tl-text">🚶 Head to boarding gate</div></div>
+      <div class="tl-item"><div class="tl-time">08:25 PM</div><div class="tl-text">✈️ Etihad EY417/EY413 · HKT → AUH (arrive 00:40 May 30)</div></div>
+      <div class="tl-item buffer"><div class="tl-time">09:30 PM</div><div class="tl-text">😴 Sleep on the plane – trip complete!</div>
+        <div class="tl-tip">💡 ~6 hour flight. Try to sleep – you arrive Abu Dhabi at 00:40 AM. What an incredible week! 🇹🇭❤️</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ PLACES ═══════════ -->
+<div class="section" id="places">
+  <h2 class="section-title"><span class="emoji">📍</span> Must-See Places</h2>
+  <div class="place-grid">
+    <div class="place-card">
+      <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=600&q=80" alt="Ao Nang">
+      <div class="body"><h3>Ao Nang Beach, Krabi</h3><p>The main beach hub of Krabi. Great for sunset walks, shopping, and catching boats to Railay and the islands.</p></div>
+    </div>
+    <div class="place-card">
+      <img src="https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?w=600&q=80" alt="Railay Beach">
+      <div class="body"><h3>Railay Beach</h3><p>Accessible only by boat, surrounded by towering limestone cliffs. One of Thailand's most stunning beaches. Don't miss Phra Nang Cave Beach!</p></div>
+    </div>
+    <div class="place-card">
+      <img src="https://images.unsplash.com/photo-1537956965359-7573183d1f57?w=600&q=80" alt="4 Islands">
+      <div class="body"><h3>4 Islands Tour, Krabi</h3><p>Visit Koh Poda, Tup Island (sand bar connecting islands!), Chicken Island, and Phra Nang Cave. Crystal clear waters for snorkeling.</p></div>
+    </div>
+    <div class="place-card">
+      <img src="https://images.unsplash.com/photo-1537956965359-7573183d1f57?w=600&q=80" alt="Phi Phi">
+      <div class="body"><h3>Phi Phi Islands</h3><p>Paradise islands with turquoise water, dramatic cliffs, and vibrant marine life. The iconic Maya Bay from "The Beach" movie.</p></div>
+    </div>
+    <div class="place-card">
+      <img src="https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?w=600&q=80" alt="Maya Bay">
+      <div class="body"><h3>Maya Bay</h3><p>The world-famous beach from Leonardo DiCaprio's "The Beach". Limited daily visitors – arrive early! Entry: ~400 THB.</p></div>
+    </div>
+    <div class="place-card">
+      <img src="https://images.unsplash.com/photo-1563492065599-3520f775eeed?w=600&q=80" alt="Big Buddha">
+      <div class="body"><h3>Big Buddha, Phuket</h3><p>45-meter tall marble Maravija Buddha sitting atop Nakkerd Hills. Breathtaking 360° views of Phuket. Free entry. Dress modestly.</p></div>
+    </div>
+    <div class="place-card">
+      <img src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=600&q=80" alt="Kata Beach">
+      <div class="body"><h3>Kata Beach & Promthep Cape</h3><p>Beautiful beach for relaxing. Promthep Cape offers Phuket's most spectacular sunset viewpoint – arrive early!</p></div>
+    </div>
+    <div class="place-card">
+      <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=600&q=80" alt="Bangla Road">
+      <div class="body"><h3>Bangla Road, Patong</h3><p>Phuket's famous nightlife strip in Patong. Comes alive after 9 PM with neon lights, street performers, bars and clubs.</p></div>
+    </div>
+    <div class="place-card">
+      <img src="https://images.unsplash.com/photo-1528181304800-259b08848526?w=600&q=80" alt="Old Phuket Town">
+      <div class="body"><h3>Old Phuket Town</h3><p>Charming Sino-Portuguese architecture, colorful streets (Soi Romanee!), local cafes, and street art. Perfect for photos!</p></div>
+    </div>
+    <div class="place-card">
+      <img src="https://images.unsplash.com/photo-1587974928442-77dc3e0dba72?w=600&q=80" alt="Wat Chalong">
+      <div class="body"><h3>Wat Chalong Temple</h3><p>Phuket's most important and largest Buddhist temple. Stunning architecture, peaceful grounds. Free entry. Dress modestly (cover shoulders & knees).</p></div>
+    </div>
+    <div class="place-card">
+      <img src="https://images.unsplash.com/photo-1506665531195-3566af2b4dfa?w=600&q=80" alt="Phi Phi Viewpoint">
+      <div class="body"><h3>Phi Phi Viewpoint</h3><p>A 20-30 min steep hike rewarded with THE iconic view of Phi Phi's twin bays. Best at sunset! Entry: ~30 THB. Bring water!</p></div>
+    </div>
+    <div class="place-card">
+      <img src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?w=600&q=80" alt="Pileh Lagoon">
+      <div class="body"><h3>Pileh Lagoon</h3><p>A hidden emerald-green lagoon enclosed by towering limestone cliffs. One of the most beautiful spots in Thailand – swim in crystal-clear water!</p></div>
+    </div>
+    <div class="place-card">
+      <img src="https://images.unsplash.com/photo-1468413253725-0d5181091126?w=600&q=80" alt="Bamboo Island">
+      <div class="body"><h3>Bamboo Island</h3><p>A small flat island with powdery white sand beach and amazing snorkeling. Part of the Phi Phi tour – perfect for relaxing between stops.</p></div>
+    </div>
+    <div class="place-card">
+      <img src="https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=600&q=80" alt="Promthep Cape">
+      <div class="body"><h3>Promthep Cape Sunset</h3><p>Phuket's most famous sunset viewpoint at the southern tip. Arrive 30 min before sunset for best spots. Stunning panoramic ocean views!</p></div>
+    </div>
+    <div class="place-card">
+      <img src="https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=600&q=80" alt="Patong Beach">
+      <div class="body"><h3>Patong Beach</h3><p>Phuket's busiest and most popular beach – 3.5 km of sand. Great for water sports, beach chairs, and people watching. Walk here from your hotel!</p></div>
+    </div>
+    <div class="place-card">
+      <img src="https://images.unsplash.com/photo-1569396116180-210c182bedb8?w=600&q=80" alt="Krabi Night Market">
+      <div class="body"><h3>Krabi Night Markets</h3><p>Ao Nang night market & walking streets with cheap local food, clothes, souvenirs. Try the street Pad Thai (~40-60 THB) and fresh fruit shakes!</p></div>
+    </div>
+    <div class="place-card">
+      <img src="https://images.unsplash.com/photo-1504214208698-ea1916a2195a?w=600&q=80" alt="Loh Dalum Bay">
+      <div class="body"><h3>Loh Dalum Bay & Fire Shows</h3><p>Phi Phi's famous party beach. Every night features FREE fire dancing shows on the sand from ~9:30 PM. Grab a bucket cocktail and enjoy!</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ TIPS ═══════════ -->
+<div class="section" id="tips">
+  <h2 class="section-title"><span class="emoji">💡</span> Travel Tips & Important Info</h2>
+  <div class="tips-grid">
+    <div class="tip-card">
+      <div class="tip-icon">💰</div>
+      <h4>Currency & Money</h4>
+      <p>Thai Baht (THB). ~1 AED = 9.5 THB. ATMs charge 220 THB fee. Exchange at airport or SuperRich in town for better rates. Carry cash – small shops don't take cards.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">📱</div>
+      <h4>SIM Card</h4>
+      <p>Buy at Phuket Airport arrivals. AIS or True Move – ~300-400 THB for 8-day tourist pack with unlimited data. Works everywhere including islands.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🕐</div>
+      <h4>Time Zone</h4>
+      <p>Thailand = UTC+7 (ICT). Same as Vietnam/Indonesia. UAE is UTC+4, so Thailand is 3 hours AHEAD of Abu Dhabi.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🔌</div>
+      <h4>Power/Plugs</h4>
+      <p>Thailand uses Type A, B, C plugs (220V). UAE plugs (Type G) need an adapter! Buy a universal adapter before the trip.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🌡️</div>
+      <h4>Weather (May)</h4>
+      <p>Start of monsoon season. Expect hot (30-33°C) with occasional rain showers. Carry a light rain jacket. Rain usually short and passes quickly.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🚕</div>
+      <h4>Transport</h4>
+      <p>Use Grab app (like Uber) in Phuket/Krabi. Negotiate tuk-tuk prices BEFORE getting in. Songthaew (shared truck) is cheapest. Longtail boats: negotiate!</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🙏</div>
+      <h4>Temple Etiquette</h4>
+      <p>Cover shoulders and knees at temples. Remove shoes before entering. Don't point feet at Buddha images. Don't touch monks (especially women).</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🍜</div>
+      <h4>Food Tips</h4>
+      <p>Street food is amazing and safe! "Mai pet" = not spicy. Try Pad Thai, Tom Yum, Green Curry, Mango Sticky Rice. Drink bottled water only.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">💊</div>
+      <h4>Health & Safety</h4>
+      <p>Carry sunscreen (SPF50+), mosquito repellent, basic meds (paracetamol, anti-diarrhea). Reef-safe sunscreen for snorkeling!</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🤿</div>
+      <h4>Snorkeling Tips</h4>
+      <p>Best visibility in morning. Wear reef shoes. Don't touch coral! Apply sunscreen 30 min before entering water. Waterproof phone pouch is a must.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">⛴️</div>
+      <h4>Ferry Tips</h4>
+      <p>Sit on the upper deck for views but prepare for sun. Take motion sickness pills if needed. Keep valuables in waterproof bag. Arrive early!</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">👑</div>
+      <h4>Respect the King</h4>
+      <p>Thailand has strict lèse-majesté laws. Never disrespect the royal family. Stand for the royal anthem in cinemas. It's taken very seriously.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ CHECKLIST ═══════════ -->
+<div class="section" id="checklist">
+  <h2 class="section-title"><span class="emoji">✅</span> Packing Checklist</h2>
+  <div class="checklist" style="background:var(--card);padding:2rem;border-radius:16px;">
+    <div style="background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.3);border-radius:10px;padding:1rem;margin-bottom:1.5rem;font-size:.85rem;line-height:1.7;">
+      <strong style="color:var(--gold);font-size:1rem;">🧳 Packing Strategy — Baggage Limits</strong><br>
+      <br>
+      <strong style="color:#f87171;">✈️ TRV → HKT (Scoot) — 20 KG check-in per couple</strong><br>
+      👫 <strong>Couple 1:</strong> 1 check-in bag (20 KG) + 2 cabin bags (7 KG each) = <strong>34 KG total</strong><br>
+      👫 <strong>Couple 2:</strong> 1 check-in bag (20 KG) + 2 cabin bags (7 KG each) = <strong>34 KG total</strong><br>
+      💡 Pack light going! Leave space for souvenirs on return.<br>
+      <br>
+      <strong style="color:#4ade80;">✈️ HKT → AUH (Return) — 25 KG check-in per couple</strong><br>
+      👫 <strong>Couple 1:</strong> 1 check-in bag (25 KG) + 2 cabin bags = <strong>+5 KG extra vs going!</strong><br>
+      👫 <strong>Couple 2:</strong> 1 check-in bag (25 KG) + 2 cabin bags = <strong>+5 KG extra vs going!</strong><br>
+      🛍️ <strong style="color:var(--gold);">That's ~11 KG FREE per couple for souvenirs on the way back!</strong><br>
+      <br>
+      ⚖️ <strong>Weight breakdown per couple (going):</strong> Clothes ~5 KG | Shoes ~2 KG | Toiletries ~2 KG | Tech ~2 KG | Beach gear ~1.5 KG | Misc ~1.5 KG = ~14 KG used<br>
+      🛍️ <strong>Souvenir budget:</strong> Going = ~6 KG free | Return = <span style="color:var(--gold);"><strong>~11 KG free!</strong> Buy Thai snacks, coconut oil, elephant pants, spices, souvenirs freely! 🎁</span><br>
+      💡 <strong>Pro tip:</strong> Bring a foldable extra duffel bag (~0.3 KG) for overflow souvenirs. Hotels have laundry (~40-80 THB/KG) so rewear clothes & pack fewer!
+    </div>
+    <div style="margin-bottom:1.5rem;">
+      <h3 style="color:var(--gold);font-size:1rem;margin-bottom:.8rem;">👔 Men’s Clothing — per person, 7 days (~2 KG)</h3>
+      <label><input type="checkbox"> 5 T-shirts / casual tops (light cotton — rewear 2) ~0.8 KG</label>
+      <label><input type="checkbox"> 3 shorts (cargo/chino — alternate daily) ~0.6 KG</label>
+      <label><input type="checkbox"> 1 lightweight long pants (temples + nice dinner) ~0.3 KG</label>
+      <label><input type="checkbox"> 2 swim trunks (one to wear, one drying) ~0.2 KG</label>
+      <label><input type="checkbox"> 1 rash guard / UV top (snorkeling — MUST for sun protection) ~0.15 KG</label>
+      <label><input type="checkbox"> 5 underwear (wash mid-trip or hotel laundry) ~0.15 KG</label>
+      <label><input type="checkbox"> 2 pairs thin socks ~0.05 KG</label>
+      <label><input type="checkbox"> 1 collared/smart casual shirt (Lae Lay Grill dinner) ~0.15 KG</label>
+      <label><input type="checkbox"> 1 light hoodie/jacket (wear on flight — don’t pack!) ~0 KG</label>
+      <label><input type="checkbox"> Sleepwear (1 set) ~0.2 KG</label>
+      <p style="color:#38bdf8;font-size:.75rem;margin-top:.5rem;">💡 Wear your heaviest clothes ON the flight (hoodie + long pants + sneakers) = saves ~1.5 KG in luggage!</p>
+    </div>
+    <div style="margin-bottom:1.5rem;">
+      <h3 style="color:var(--gold);font-size:1rem;margin-bottom:.8rem;">👗 Women’s Clothing — per person, 7 days (~2.5 KG)</h3>
+      <label><input type="checkbox"> 5 tops / blouses (light, flowy — rewear 2) ~0.7 KG</label>
+      <label><input type="checkbox"> 2 shorts / skirts (casual everyday) ~0.3 KG</label>
+      <label><input type="checkbox"> 2 summer/maxi dresses (perfect for temples + photos! Covers knees) ~0.5 KG</label>
+      <label><input type="checkbox"> 1 long skirt or pants (Big Buddha & Wat Chalong — must cover knees) ~0.25 KG</label>
+      <label><input type="checkbox"> 1 scarf / shawl (temple cover-up + AC protection — multi-use!) ~0.1 KG</label>
+      <label><input type="checkbox"> 2 swimsuits / bikinis (one to wear, one drying) ~0.2 KG</label>
+      <label><input type="checkbox"> 1 swim cover-up / sarong (beach to restaurant — multi-use!) ~0.15 KG</label>
+      <label><input type="checkbox"> 1 rash guard / UV top (snorkeling — MUST for sun protection) ~0.15 KG</label>
+      <label><input type="checkbox"> 5 underwear + 2 sports bras (wash mid-trip) ~0.2 KG</label>
+      <label><input type="checkbox"> 1 nice dress (Lae Lay Grill / Baan Rim Pa dinner) ~0.25 KG</label>
+      <label><input type="checkbox"> 1 light cardigan/jacket (wear on flight — don’t pack!) ~0 KG</label>
+      <label><input type="checkbox"> Sleepwear / pajamas (1 set) ~0.2 KG</label>
+      <p style="color:#38bdf8;font-size:.75rem;margin-top:.5rem;">💡 Maxi dresses are your best friend — temple-ready, photo-ready, light & pack small! Wear heaviest outfit on flight to save luggage weight.</p>
+    </div>
+<div style="margin-bottom:1.5rem;">
+      <h3 style="color:var(--gold);font-size:1rem;margin-bottom:.8rem;">👟 Footwear</h3>
+      <label><input type="checkbox"> Comfortable walking sandals / flip-flops (daily wear)</label>
+      <label><input type="checkbox"> Reef shoes / water sandals (for snorkeling & rocky beaches)</label>
+      <label><input type="checkbox"> 1 pair sneakers / walking shoes (for Phi Phi Viewpoint hike, Big Buddha)</label>
+    </div>
+    <div style="margin-bottom:1.5rem;">
+      <h3 style="color:var(--gold);font-size:1rem;margin-bottom:.8rem;">🏖️ Beach & Water Gear</h3>
+      <label><input type="checkbox"> Waterproof phone pouch (MUST HAVE!)</label>
+      <label><input type="checkbox"> Quick-dry beach towel (or use hotel's)</label>
+      <label><input type="checkbox"> Snorkeling mask & snorkel (or rent ~150 THB)</label>
+      <label><input type="checkbox"> GoPro / underwater camera + charger</label>
+      <label><input type="checkbox"> Dry bag / waterproof bag (for ferry & boat trips)</label>
+      <label><input type="checkbox"> Reef-safe sunscreen SPF50+ (2 bottles minimum!)</label>
+    </div>
+    <div style="margin-bottom:1.5rem;">
+      <h3 style="color:var(--gold);font-size:1rem;margin-bottom:.8rem;">📱 Tech & Electronics</h3>
+      <label><input type="checkbox"> Phone + charger + cable</label>
+      <label><input type="checkbox"> Power bank (10000+ mAh) + cable</label>
+      <label><input type="checkbox"> Universal power adapter (UAE Type G → Thailand Type A/B/C)</label>
+      <label><input type="checkbox"> Earphones / AirPods</label>
+      <label><input type="checkbox"> Camera + memory card + charger</label>
+      <label><input type="checkbox"> Selfie stick / mini tripod</label>
+    </div>
+    <div style="margin-bottom:1.5rem;">
+      <h3 style="color:var(--gold);font-size:1rem;margin-bottom:.8rem;">💊 Health & Toiletries</h3>
+      <label><input type="checkbox"> Sunscreen SPF50+ (face + body)</label>
+      <label><input type="checkbox"> After-sun / aloe vera gel</label>
+      <label><input type="checkbox"> Mosquito repellent spray/cream</label>
+      <label><input type="checkbox"> Paracetamol / Panadol</label>
+      <label><input type="checkbox"> Anti-diarrhea tablets (Imodium)</label>
+      <label><input type="checkbox"> Motion sickness pills (for ferries!)</label>
+      <label><input type="checkbox"> Antihistamine (for allergies / bites)</label>
+      <label><input type="checkbox"> Band-aids / plasters</label>
+      <label><input type="checkbox"> Hand sanitizer</label>
+      <label><input type="checkbox"> Lip balm with SPF</label>
+      <label><input type="checkbox"> Personal toiletries (travel-size)</label>
+      <label><input type="checkbox"> Wet wipes / tissues</label>
+    </div>
+    <div style="margin-bottom:1.5rem;">
+      <h3 style="color:var(--gold);font-size:1rem;margin-bottom:.8rem;">📄 Documents & Money</h3>
+      <label><input type="checkbox"> Passport (valid 6+ months from travel date)</label>
+      <label><input type="checkbox"> Passport photocopy (keep separate + photo on phone)</label>
+      <label><input type="checkbox"> Flight tickets / E-tickets (printed + on phone)</label>
+      <label><input type="checkbox"> Hotel booking confirmations (printed + on phone)</label>
+      <label><input type="checkbox"> Klook ferry vouchers (screenshot + printed!)</label>
+      <label><input type="checkbox"> Travel insurance documents</label>
+      <label><input type="checkbox"> Debit/Credit card (Visa/Mastercard work everywhere)</label>
+      <label><input type="checkbox"> Some Thai Baht cash (exchange at airport or bring USD/AED)</label>
+      <label><input type="checkbox"> Emergency contact card in wallet</label>
+    </div>
+    <div style="margin-bottom:1.5rem;">
+      <h3 style="color:var(--gold);font-size:1rem;margin-bottom:.8rem;">🎒 Accessories & Misc</h3>
+      <label><input type="checkbox"> Sunglasses (polarized if possible)</label>
+      <label><input type="checkbox"> Hat / cap (sun protection)</label>
+      <label><input type="checkbox"> Neck pillow (for flights)</label>
+      <label><input type="checkbox"> Eye mask + ear plugs (for red-eye flight)</label>
+      <label><input type="checkbox"> Day backpack (small, for island trips)</label>
+      <label><input type="checkbox"> Packing cubes (keeps luggage organized)</label>
+      <label><input type="checkbox"> Ziplock bags (for wet clothes / electronics)</label>
+      <label><input type="checkbox"> Reusable water bottle</label>
+      <label><input type="checkbox"> Small padlock (for hostel lockers if needed)</label>
+    </div>
+    <div style="margin-bottom:1.5rem;">
+      <h3 style="color:var(--gold);font-size:1rem;margin-bottom:.8rem;">📲 Apps to Install Before Trip</h3>
+      <label><input type="checkbox"> Grab (taxi / ride-hailing – like Uber)</label>
+      <label><input type="checkbox"> Klook (tours & activities)</label>
+      <label><input type="checkbox"> Google Maps (download offline maps: Krabi, Phi Phi, Phuket)</label>
+      <label><input type="checkbox"> Google Translate (download Thai language pack offline)</label>
+      <label><input type="checkbox"> XE Currency (live THB exchange rates)</label>
+      <label><input type="checkbox"> WhatsApp (keep in touch with group)</label>
+    </div>
+    <div>
+      <h3 style="color:var(--gold);font-size:1rem;margin-bottom:.8rem;">✅ Pre-Departure Checklist</h3>
+      <label><input type="checkbox"> Passport validity checked (6+ months)</label>
+      <label><input type="checkbox"> Thailand visa – NOT needed for UAE/Indian passport (30-day visa on arrival)</label>
+      <label><input type="checkbox"> Travel insurance purchased</label>
+      <label><input type="checkbox"> Bank notified about international travel</label>
+      <label><input type="checkbox"> International roaming activated OR Thai SIM plan ready</label>
+      <label><input type="checkbox"> All bookings confirmed (flights + hotels + ferries)</label>
+      <label><input type="checkbox"> Emergency contacts saved on phone</label>
+      <label><input type="checkbox"> Home secured (AC off, doors locked, etc.)</label>
+      <label><input type="checkbox"> Arrive at AUH airport 3 hrs before departure</label>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ EMERGENCY ═══════════ -->
+<div class="section" id="emergency">
+  <h2 class="section-title"><span class="emoji">🆘</span> Emergency & Important Contacts</h2>
+  <div class="emergency-grid">
+    <div class="emer-card">
+      <div class="icon">🚨</div>
+      <h4>Thailand Emergency</h4>
+      <div class="num">191</div>
+    </div>
+    <div class="emer-card">
+      <div class="icon">🚑</div>
+      <h4>Medical Emergency</h4>
+      <div class="num">1669</div>
+    </div>
+    <div class="emer-card">
+      <div class="icon">👮</div>
+      <h4>Tourist Police</h4>
+      <div class="num">1155</div>
+    </div>
+    <div class="emer-card">
+      <div class="icon">🏨</div>
+      <h4>Centara Anda Dhevi</h4>
+      <div class="num">+66-75-626222</div>
+      <p style="font-size:.75rem;color:var(--muted);margin-top:.3rem;">Conf: 34980SG107810 / PIN: 6053</p>
+    </div>
+    <div class="emer-card">
+      <div class="icon">🏖️</div>
+      <h4>Phi Phi Beach Resort</h4>
+      <div class="num">+66 62 191 4945</div>
+    </div>
+    <div class="emer-card">
+      <div class="icon">🏨</div>
+      <h4>Burasari Phuket</h4>
+      <div class="num">+66-76-292929</div>
+    </div>
+    <div class="emer-card">
+      <div class="icon">⛴️</div>
+      <h4>Ferry Operator (Phi Phi→Phuket)</h4>
+      <div class="num">+66 76 614 139</div>
+    </div>
+    <div class="emer-card">
+      <div class="icon">✈️</div>
+      <h4>Etihad Airways</h4>
+      <div class="num">+971 600 508 080</div>
+    </div>
+    <div class="emer-card">
+      <div class="icon">🇦🇪</div>
+      <h4>UAE Embassy Bangkok</h4>
+      <div class="num">+66 2 639 1800</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>🇹🇭 Thailand Trip · May 21–29, 2026 · Made by Rahul Raj Valia Veetil</p>
+  <p style="margin-top:.5rem;">Rahul · Reshma · Ashik · Sreya</p>
+</footer>
+
+<script>
+// Active nav highlighting
+const sections = document.querySelectorAll('[id]');
+const navLinks = document.querySelectorAll('.sticky-nav a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if(window.scrollY >= s.offsetTop - 120) current = s.id; });
+  navLinks.forEach(a => {
+    a.classList.remove('active');
+    if(a.getAttribute('href') === '#' + current) a.classList.add('active');
+  });
+});
+
+// Save checklist state
+document.querySelectorAll('.checklist input').forEach((cb, i) => {
+  const key = 'check_' + i;
+  cb.checked = localStorage.getItem(key) === 'true';
+  cb.addEventListener('change', () => localStorage.setItem(key, cb.checked));
+});
+</script>
+</body>
+</html>
