@@ -196,28 +196,20 @@ footer { text-align:center; padding:3rem 1rem; color:var(--muted); font-size:.8r
   .hero .travelers span { font-size:.78rem; padding:.4rem .8rem; }
 }
 
-/* MOBILE NAV - collapsible hamburger */
+/* MOBILE NAV - always visible, compact wrapped */
 .nav-toggle { display:none; }
-.nav-toggle-label {
-  display:none; cursor:pointer; padding:.6rem 1rem; color:var(--gold); font-size:1.3rem;
-  position:sticky; top:0; z-index:101; background:rgba(15,25,35,0.95); backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(212,168,83,0.2); text-align:center;
-}
-.nav-toggle-label span { font-size:.85rem; font-weight:600; color:var(--text); margin-left:.5rem; vertical-align:middle; }
+.nav-toggle-label { display:none; }
 
 @media(max-width:768px) {
-  .sticky-nav { display:none; }
-  .nav-toggle-label { display:block; }
-  .nav-toggle:checked ~ .sticky-nav {
-    display:block; position:sticky; top:40px; z-index:100;
+  .sticky-nav { overflow-x:visible; padding:.5rem 0; }
+  .sticky-nav .inner {
+    flex-wrap:wrap; justify-content:center; gap:.35rem; padding:.4rem .6rem; min-width:auto;
   }
-  .nav-toggle:checked ~ .sticky-nav .inner {
-    flex-wrap:wrap; justify-content:center; gap:.4rem; padding:.6rem .8rem; min-width:auto;
+  .sticky-nav a {
+    font-size:.7rem; padding:.35rem .6rem; border-radius:6px;
+    background:var(--card); border:1px solid rgba(212,168,83,0.15);
   }
-  .nav-toggle:checked ~ .sticky-nav a {
-    font-size:.72rem; padding:.4rem .7rem; flex:0 0 auto;
-  }
-  .nav-toggle:checked ~ .sticky-nav a small { font-size:.55rem; }
+  .sticky-nav a small { font-size:.5rem; }
 }
 
 /* RESTAURANT */
@@ -296,13 +288,8 @@ if(sessionStorage.getItem('th_auth')==='1'){
 </section>
 
 <!-- NAV -->
-<input type="checkbox" id="navToggle" class="nav-toggle">
-<label for="navToggle" class="nav-toggle-label">☰<span>Menu</span></label>
 <nav class="sticky-nav">
   <div class="inner">
-    <a href="#flights">✈️ Flights</a>
-    <a href="#ferries">⛴️ Ferries</a>
-    <a href="#hotels">🏨 Hotels</a>
     <a href="#pre1">Pre-1 <small>21 May</small><small>📍 Trivandrum</small></a>
     <a href="#pre2">Pre-2 <small>22 May</small><small>📍 Trivandrum</small></a>
     <a href="#day1">Day 1 <small>23 May</small><small>📍 Krabi</small></a>
@@ -312,6 +299,9 @@ if(sessionStorage.getItem('th_auth')==='1'){
     <a href="#day5">Day 5 <small>27 May</small><small>📍 Phi Phi → Phuket</small></a>
     <a href="#day6">Day 6 <small>28 May</small><small>📍 Phuket</small></a>
     <a href="#day7">Day 7 <small>29 May</small><small>📍 Phuket → Home</small></a>
+    <a href="#flights">✈️ Flights</a>
+    <a href="#ferries">⛴️ Ferries</a>
+    <a href="#hotels">🏨 Hotels</a>
     <a href="#places">📍 Places</a>
     <a href="#tips">💡 Tips</a>
     <a href="#checklist">✅ Checklist</a>
@@ -1487,13 +1477,6 @@ window.addEventListener('scroll', () => {
   navLinks.forEach(a => {
     a.classList.remove('active');
     if(a.getAttribute('href') === '#' + current) a.classList.add('active');
-  });
-});
-
-// Close mobile nav on link click
-document.querySelectorAll('.sticky-nav a[href^="#"]').forEach(a => {
-  a.addEventListener('click', () => {
-    document.getElementById('navToggle').checked = false;
   });
 });
 
